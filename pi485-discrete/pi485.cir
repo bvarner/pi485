@@ -1,0 +1,29 @@
+* /Users/bvarner/Documents/Personal/pi485/pi485.cir
+
+* EESchema Netlist Version 1.1 (Spice format) creation date: Thursday, January 05, 2017 'PMt' 02:41:48 PM
+
+* To exclude a component from the Spice Netlist add [Spice_Netlist_Enabled] user FIELD set to: N
+* To reorder the component spice node sequence add [Spice_Node_Sequence] user FIELD and define sequence: 2,1,0
+
+* Sheet Name: /
+P1  VCC GND /_TXDO__GPIO14 /_RXDO__GPIO15 VCC GND CONN_01X06		
+R1  VCC Net-_D1-Pad2_ 1k		
+D1  GND Net-_D1-Pad2_ LED		
+C1  GND VCC 0.1uF		
+C2  GND VCC 10uF		
+U1  GND /_TXDO__GPIO14 Net-_Q1-Pad2_ VCC Net-_C3-Pad2_ Net-_C4-Pad1_ Net-_C4-Pad1_ VCC NE555		
+R2  Net-_C4-Pad1_ VCC 3.9k		
+C4  Net-_C4-Pad1_ GND 10nF		
+C3  GND Net-_C3-Pad2_ 10nF		
+D2  /_TXDO__GPIO14 Net-_C4-Pad1_ BAT43		
+U2  /_RXDO__GPIO15 Net-_Q1-Pad2_ Net-_Q1-Pad2_ /_TXDO__GPIO14 GND Net-_J1-Pad2_ Net-_J1-Pad1_ VCC MAX485		
+R5  Net-_J1-Pad2_ Net-_P2-Pad1_ 120		
+R4  VCC Net-_J1-Pad2_ 20k		
+R6  Net-_J1-Pad1_ GND 20k		
+J1  Net-_J1-Pad1_ Net-_J1-Pad2_ RS485		
+Q1  GND Net-_Q1-Pad2_ Net-_D3-Pad1_ NPN		
+R3  Net-_D3-Pad2_ VCC 470		
+D3  Net-_D3-Pad1_ Net-_D3-Pad2_ LED		
+P2  Net-_P2-Pad1_ Net-_J1-Pad1_ Termination Jumper		
+
+.end
