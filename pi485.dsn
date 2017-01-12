@@ -21,8 +21,8 @@
       )
     )
     (boundary
-      (path pcb 0  11938 -12065  11938 -62065  81938 -62065  81938 -12065
-            11938 -12065  11938 -12065)
+      (path pcb 0  111938 -12065  11938 -12065  11938 -82065  111938 -82065
+            111938 -12065  111938 -12065)
     )
     (via "Via[0-1]_800:400_um")
     (rule
@@ -33,82 +33,88 @@
     )
   )
   (placement
-    (component "Diodes_THT:Diode_DO-35_SOD27_Horizontal_RM10"
-      (place D2 27178 -36195 front 270 (PN BAT43))
+    (component "TO_SOT_Packages_THT:TO-92_Inline_Wide"
+      (place Q3 47498 -61595 front 270 (PN 2N4401))
+      (place Q2 23368 -75565 front 0 (PN 2N4401))
+      (place Q1 33528 -75565 front 0 (PN 2N4401))
     )
-    (component Resistors_THT:Resistor_Horizontal_RM10mm
-      (place R1 30988 -23495 front 270 (PN 1k))
-      (place R3 20828 -42545 front 270 (PN 470))
-      (place R2 32258 -55245 front 0 (PN 3.9k))
-      (place R4 44958 -27305 front 180 (PN 20k))
+    (component Mounting_Holes:MountingHole_3.2mm_M3
+      (place REF01 17018 -17145 front 0 (PN MountingHole_3.2mm_M3))
+      (place REF02 60198 -17145 front 0 (PN MountingHole_3.2mm_M3))
+      (place REF04 17018 -76835 front 0 (PN MountingHole_3.2mm_M3))
+      (place REF03 60198 -76835 front 0 (PN MountingHole_3.2mm_M3))
     )
     (component Capacitors_THT:C_Rect_L7_W2.5_P5
-      (place C1 52578 -52705 front 180 (PN 0.1uF))
-      (place C4 29718 -52705 front 180 (PN 10nF))
+      (place C1 30988 -22225 front 0 (PN 10uF))
+      (place C3 52578 -40005 front 0 (PN 10nF))
     )
     (component Capacitors_THT:C_Rect_L7_W2.5_P5::1
-      (place C2 52578 -57785 front 180 (PN 10uF))
-      (place C3 29718 -59055 front 0 (PN 10nF))
+      (place C2 30988 -17145 front 0 (PN 0.1uF))
     )
     (component "LEDs:LED-5MM"
-      (place D1 18288 -23495 front 180 (PN PWR))
+      (place D1 17018 -32385 front 270 (PN PWRLED))
+      (place D3 27178 -67945 front 180 (PN RXLED))
     )
     (component "LEDs:LED-5MM::1"
-      (place D3 17018 -52705 front 270 (PN TX))
+      (place D2 37338 -67945 front 180 (PN TXLED))
     )
     (component "Connectors_Terminal_Blocks:TerminalBlock_Pheonix_MPT-2.54mm_2pol"
-      (place J1 34798 -15875 front 180 (PN RS485))
+      (place J1 43688 -15875 front 180 (PN RS485))
     )
     (component Socket_Strips:Socket_Strip_Angled_1x04
-      (place P1 23368 -31115 front 270 (PN "Rasperry Pi"))
+      (place P1 24638 -40005 front 270 (PN "Rasperry Pi"))
     )
     (component Socket_Strips:Socket_Strip_Angled_1x02
-      (place P2 23368 -14605 front 270 (PN PWR))
+      (place P2 24638 -24765 front 270 (PN PWR))
     )
     (component Pin_Headers:Pin_Header_Straight_1x02
-      (place P3 44958 -18415 front 180 (PN Term))
+      (place P3 43688 -22225 front 270 (PN Term))
     )
-    (component "TO_SOT_Packages_THT:TO-92_Inline_Wide"
-      (place Q1 15748 -47625 front 90 (PN NPN))
+    (component Resistors_THT:Resistor_Horizontal_RM10mm
+      (place R1 34798 -34925 front 180 (PN 1k))
+      (place R5 38608 -34925 front 0 (PN 120))
+      (place R6 43688 -29845 front 0 (PN 20k))
+      (place R7 24638 -61595 front 90 (PN 220))
+      (place R8 43688 -78105 front 90 (PN 2.5k))
     )
     (component Resistors_THT:Resistor_Horizontal_RM10mm::1
-      (place R5 34798 -22225 front 0 (PN 120))
-      (place R6 47498 -38735 front 270 (PN 20k))
+      (place R2 61468 -61595 front 180 (PN 3.9k))
+      (place R3 30988 -61595 front 90 (PN 220))
+      (place R4 28448 -29845 front 0 (PN 20k))
+      (place R9 19558 -61595 front 90 (PN 2.5k))
+      (place R10 37338 -61595 front 90 (PN 2.5k))
     )
     (component "Housings_DIP:DIP-8_W7.62mm_LongPads"
-      (place U1 42418 -43815 front 270 (PN NE555))
+      (place U1 51308 -46355 front 0 (PN NE555))
     )
     (component "Housings_DIP:DIP-8_W7.62mm_LongPads::1"
-      (place U2 34798 -38735 front 90 (PN MAX485))
+      (place U2 34798 -47625 front 90 (PN MAX485))
     )
   )
   (library
-    (image "Diodes_THT:Diode_DO-35_SOD27_Horizontal_RM10"
-      (outline (path signal 150  2794.52 764.54  2794.52 2.54))
-      (outline (path signal 150  7366.52 764.54  2794.52 764.54))
-      (outline (path signal 150  7366.52 -759.46  7366.52 764.54))
-      (outline (path signal 150  2794.52 -759.46  7366.52 -759.46))
-      (outline (path signal 150  2794.52 2.54  2794.52 -759.46))
-      (outline (path signal 150  3048.52 764.54  3048.52 -759.46))
-      (outline (path signal 150  3302.52 764.54  3302.52 -759.46))
-      (outline (path signal 150  2921.52 2.54  1397.52 2.54))
-      (outline (path signal 150  7366.52 2.54  8763.52 2.54))
-      (pin Rect[A]Pad_1699.26x1699.26_um (rotate 180) 1 0.52 2.54)
-      (pin Round[A]Pad_1699.26_um (rotate 180) 2 10160.5 2.54)
+    (image "TO_SOT_Packages_THT:TO-92_Inline_Wide"
+      (outline (path signal 50  6100 -1950  6100 2650))
+      (outline (path signal 50  -1000 2650  6100 2650))
+      (outline (path signal 150  840 -1700  4240 -1700))
+      (outline (path signal 50  -1000 -1950  6100 -1950))
+      (outline (path signal 50  -1000 -1950  -1000 2650))
+      (pin Round[A]Pad_1524_um (rotate 90) 1 0 0)
+      (pin Round[A]Pad_1524_um (rotate 90) 3 5080 0)
+      (pin Round[A]Pad_1524_um (rotate 90) 2 2540 0)
     )
-    (image Resistors_THT:Resistor_Horizontal_RM10mm
-      (outline (path signal 150  7620 0  8890 0))
-      (outline (path signal 150  2540 0  1270 0))
-      (outline (path signal 150  2540 -1270  2540 1270))
-      (outline (path signal 150  7620 -1270  2540 -1270))
-      (outline (path signal 150  7620 1270  7620 -1270))
-      (outline (path signal 150  2540 1270  7620 1270))
-      (outline (path signal 50  -1250 -1500  11400 -1500))
-      (outline (path signal 50  11400 1500  11400 -1500))
-      (outline (path signal 50  -1250 -1500  -1250 1500))
-      (outline (path signal 50  -1250 1500  11400 1500))
-      (pin Round[A]Pad_1998.98_um 2 10160 0)
-      (pin Round[A]Pad_1998.98_um 1 0 0)
+    (image Mounting_Holes:MountingHole_3.2mm_M3
+      (outline (path signal 50  3450 0  3281.14 -1066.11  2791.11 -2027.86  2027.86 -2791.11
+            1066.11 -3281.14  0 -3450  -1066.11 -3281.14  -2027.86 -2791.11
+            -2791.11 -2027.86  -3281.14 -1066.11  -3450 0  -3281.14 1066.11
+            -2791.11 2027.86  -2027.86 2791.11  -1066.11 3281.14  0 3450
+            1066.11 3281.14  2027.86 2791.11  2791.11 2027.86  3281.14 1066.11))
+      (outline (path signal 150  3200 0  3043.38 -988.854  2588.85 -1880.91  1880.91 -2588.85
+            988.854 -3043.38  0 -3200  -988.854 -3043.38  -1880.91 -2588.85
+            -2588.85 -1880.91  -3043.38 -988.854  -3200 0  -3043.38 988.854
+            -2588.85 1880.91  -1880.91 2588.85  -988.854 3043.38  0 3200
+            988.854 3043.38  1880.91 2588.85  2588.85 1880.91  3043.38 988.854))
+      (keepout "" (circle F.Cu 3200))
+      (keepout "" (circle B.Cu 3200))
     )
     (image Capacitors_THT:C_Rect_L7_W2.5_P5
       (outline (path signal 50  -1250 1500  6250 1500))
@@ -232,17 +238,7 @@
       (pin Rect[A]Pad_2032x2032_um 1 0 0)
       (pin Oval[A]Pad_2032x2032_um 2 0 -2540)
     )
-    (image "TO_SOT_Packages_THT:TO-92_Inline_Wide"
-      (outline (path signal 50  -1000 -1950  -1000 2650))
-      (outline (path signal 50  -1000 -1950  6100 -1950))
-      (outline (path signal 150  840 -1700  4240 -1700))
-      (outline (path signal 50  -1000 2650  6100 2650))
-      (outline (path signal 50  6100 -1950  6100 2650))
-      (pin Round[A]Pad_1524_um (rotate 90) 2 2540 0)
-      (pin Round[A]Pad_1524_um (rotate 90) 3 5080 0)
-      (pin Round[A]Pad_1524_um (rotate 90) 1 0 0)
-    )
-    (image Resistors_THT:Resistor_Horizontal_RM10mm::1
+    (image Resistors_THT:Resistor_Horizontal_RM10mm
       (outline (path signal 50  -1250 1500  11400 1500))
       (outline (path signal 50  -1250 -1500  -1250 1500))
       (outline (path signal 50  11400 1500  11400 -1500))
@@ -255,6 +251,20 @@
       (outline (path signal 150  7620 0  8890 0))
       (pin Round[A]Pad_1998.98_um 1 0 0)
       (pin Round[A]Pad_1998.98_um 2 10160 0)
+    )
+    (image Resistors_THT:Resistor_Horizontal_RM10mm::1
+      (outline (path signal 150  7620 0  8890 0))
+      (outline (path signal 150  2540 0  1270 0))
+      (outline (path signal 150  2540 -1270  2540 1270))
+      (outline (path signal 150  7620 -1270  2540 -1270))
+      (outline (path signal 150  7620 1270  7620 -1270))
+      (outline (path signal 150  2540 1270  7620 1270))
+      (outline (path signal 50  -1250 -1500  11400 -1500))
+      (outline (path signal 50  11400 1500  11400 -1500))
+      (outline (path signal 50  -1250 -1500  -1250 1500))
+      (outline (path signal 50  -1250 1500  11400 1500))
+      (pin Round[A]Pad_1998.98_um 2 10160 0)
+      (pin Round[A]Pad_1998.98_um 1 0 0)
     )
     (image "Housings_DIP:DIP-8_W7.62mm_LongPads"
       (outline (path signal 50  -1400 2450  -1400 -10100))
@@ -308,11 +318,6 @@
       (shape (circle B.Cu 1524))
       (attach off)
     )
-    (padstack Round[A]Pad_1699.26_um
-      (shape (circle F.Cu 1699.26))
-      (shape (circle B.Cu 1699.26))
-      (attach off)
-    )
     (padstack Round[A]Pad_1900_um
       (shape (circle F.Cu 1900))
       (shape (circle B.Cu 1900))
@@ -358,11 +363,6 @@
       (shape (rect B.Cu -650 -650 650 650))
       (attach off)
     )
-    (padstack Rect[A]Pad_1699.26x1699.26_um
-      (shape (rect F.Cu -849.63 -849.63 849.63 849.63))
-      (shape (rect B.Cu -849.63 -849.63 849.63 849.63))
-      (attach off)
-    )
     (padstack Rect[A]Pad_1727.2x2032_um
       (shape (rect F.Cu -863.6 -1016 863.6 1016))
       (shape (rect B.Cu -863.6 -1016 863.6 1016))
@@ -381,22 +381,16 @@
   )
   (network
     (net GND
-      (pins R1-2 C1-1 C2-1 C3-1 C4-2 P1-2 P2-2 Q1-1 R4-1 U1-1 U2-5)
+      (pins Q2-3 Q1-3 C1-2 C2-2 C3-1 D1-1 D2-1 D3-1 P1-2 P2-2 R4-1 U1-1 U2-5)
     )
     (net VCC
-      (pins C1-2 C2-2 D1-2 D3-2 P1-1 P2-1 R2-2 R6-2 U1-4 U1-8 U2-8)
+      (pins C1-1 C2-1 P1-1 P2-1 R1-1 R2-2 R3-2 R6-2 R7-2 R10-2 U1-4 U1-8 U2-8)
     )
     (net "Net-(C3-Pad2)"
       (pins C3-2 U1-5)
     )
-    (net "Net-(C4-Pad1)"
-      (pins D2-2 C4-1 R2-1 U1-6 U1-7)
-    )
     (net "/(TXDO)_GPIO14"
-      (pins D2-1 P1-3 U1-2 U2-4)
-    )
-    (net "Net-(D3-Pad1)"
-      (pins R3-2 D3-1)
+      (pins Q3-3 P1-3 R8-2 U1-2 U2-4)
     )
     (net "Net-(J1-Pad2)"
       (pins J1-2 P3-2 R6-1 U2-6)
@@ -405,24 +399,40 @@
       (pins J1-1 R4-2 R5-1 U2-7)
     )
     (net "/(RXDO)_GPIO15"
-      (pins P1-4 U2-1)
+      (pins P1-4 R9-2 U2-1)
     )
     (net "Net-(Q1-Pad2)"
-      (pins Q1-2 U1-3 U2-3 U2-2)
+      (pins Q1-2 R8-1)
     )
     (net "Net-(P3-Pad1)"
       (pins P3-1 R5-2)
     )
-    (net "Net-(Q1-Pad3)"
-      (pins R3-1 Q1-3)
+    (net "Net-(D1-Pad2)"
+      (pins D1-2 R1-2)
     )
-    (net "Net-(D1-Pad1)"
-      (pins R1-1 D1-1)
+    (net "Net-(D2-Pad2)"
+      (pins Q1-1 D2-2 R3-1)
+    )
+    (net "Net-(D3-Pad2)"
+      (pins Q2-1 D3-2 R7-1)
+    )
+    (net "Net-(Q3-Pad1)"
+      (pins Q3-1 R2-1 U1-6 U1-7)
+    )
+    (net "Net-(Q2-Pad2)"
+      (pins Q2-2 R9-1)
+    )
+    (net "Net-(Q3-Pad2)"
+      (pins Q3-2 R10-1)
+    )
+    (net "Net-(U1-Pad3)"
+      (pins U1-3 U2-3 U2-2)
     )
     (class kicad_default "" "/(RXDO)_GPIO15" "/(TXDO)_GPIO14" GND "Net-(C3-Pad2)"
-      "Net-(C4-Pad1)" "Net-(D1-Pad1)" "Net-(D1-Pad2)" "Net-(D3-Pad1)" "Net-(D3-Pad2)"
-      "Net-(J1-Pad1)" "Net-(J1-Pad2)" "Net-(P2-Pad1)" "Net-(P3-Pad1)" "Net-(Q1-Pad2)"
-      "Net-(Q1-Pad3)" VCC
+      "Net-(C4-Pad1)" "Net-(D1-Pad1)" "Net-(D1-Pad2)" "Net-(D2-Pad2)" "Net-(D3-Pad1)"
+      "Net-(D3-Pad2)" "Net-(J1-Pad1)" "Net-(J1-Pad2)" "Net-(P3-Pad1)" "Net-(Q1-Pad2)"
+      "Net-(Q1-Pad3)" "Net-(Q2-Pad2)" "Net-(Q3-Pad1)" "Net-(Q3-Pad2)" "Net-(U1-Pad3)"
+      VCC
       (circuit
         (use_via Via[0-1]_800:400_um)
       )

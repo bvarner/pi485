@@ -11,7 +11,7 @@
     (via_costs 50)
     (plane_via_costs 5)
     (start_ripup_costs 100)
-    (start_pass_no 527)
+    (start_pass_no 737)
     (layer_rule B.Cu
       (active on)
       (preferred_direction vertical)
@@ -54,8 +54,8 @@
     )
   )
   (class "kicad_default"
-    GND VCC "Net-(C3-Pad2)" "Net-(C4-Pad1)" "/(TXDO)_GPIO14" "Net-(D3-Pad1)" "Net-(J1-Pad2)" "Net-(J1-Pad1)"
-    "/(RXDO)_GPIO15" "Net-(Q1-Pad2)" "Net-(P3-Pad1)" "Net-(Q1-Pad3)" "Net-(D1-Pad1)"
+    GND VCC "Net-(C3-Pad2)" "/(TXDO)_GPIO14" "Net-(J1-Pad2)" "Net-(J1-Pad1)" "/(RXDO)_GPIO15" "Net-(Q1-Pad2)"
+    "Net-(P3-Pad1)" "Net-(D1-Pad2)" "Net-(D2-Pad2)" "Net-(D3-Pad2)" "Net-(Q3-Pad1)" "Net-(Q2-Pad2)" "Net-(Q3-Pad2)" "Net-(U1-Pad3)"
     (clearance_class "kicad_default")
     (via_rule kicad_default)
     (rule
