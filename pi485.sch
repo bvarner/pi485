@@ -91,14 +91,14 @@ EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
-Title "Pi-485"
-Date "2017-1-6"
-Rev "1"
+Title "Pi485"
+Date "2017-01-12"
+Rev "1.0.0"
 Comp "Bryan Varner"
 Comment1 ""
 Comment2 ""
-Comment3 "Implements half-duplex RS485 with TX triggerd RE/DE control."
-Comment4 "Raspberry Pi UART to RS485"
+Comment3 "Implements half-duplex with TX latched RE/DE"
+Comment4 "Raspberry Pi / Arduino UART to RS485"
 $EndDescr
 $Comp
 L GND #PWR01
@@ -172,7 +172,7 @@ U 1 1 586E84C4
 P 2200 4700
 F 0 "R1" V 2280 4700 50  0000 C CNN
 F 1 "1k" V 2200 4700 50  0000 C CNN
-F 2 "Resistors_THT:Resistor_Horizontal_RM10mm" V 2350 4000 50  0001 C CNN
+F 2 "Resistors_THT:Resistor_Horizontal_RM7mm" V 2350 4000 50  0001 C CNN
 F 3 "" H 2200 4700 50  0000 C CNN
 	1    2200 4700
 	1    0    0    -1  
@@ -205,7 +205,7 @@ U 1 1 586E88D3
 P 6400 4150
 F 0 "R2" V 6480 4150 50  0000 C CNN
 F 1 "3.9k" V 6400 4150 50  0000 C CNN
-F 2 "Resistors_THT:Resistor_Horizontal_RM10mm" H 5500 4150 50  0001 C CNN
+F 2 "Resistors_THT:Resistor_Horizontal_RM7mm" H 5500 4150 50  0001 C CNN
 F 3 "" H 6400 4150 50  0000 C CNN
 	1    6400 4150
 	-1   0    0    1   
@@ -282,7 +282,7 @@ U 1 1 586EB6FC
 P 8000 2450
 F 0 "R5" V 8080 2450 50  0000 C CNN
 F 1 "120" V 8000 2450 50  0000 C CNN
-F 2 "Resistors_THT:Resistor_Horizontal_RM10mm" H 8850 2650 50  0001 C CNN
+F 2 "Resistors_THT:Resistor_Horizontal_RM7mm" H 8850 2650 50  0001 C CNN
 F 3 "" H 8000 2450 50  0000 C CNN
 	1    8000 2450
 	1    0    0    -1  
@@ -293,7 +293,7 @@ U 1 1 586EB760
 P 8000 2050
 F 0 "R4" V 8080 2050 50  0000 C CNN
 F 1 "20k" V 8000 2050 50  0000 C CNN
-F 2 "Resistors_THT:Resistor_Horizontal_RM10mm" H 8850 2300 50  0001 C CNN
+F 2 "Resistors_THT:Resistor_Horizontal_RM7mm" H 8850 2300 50  0001 C CNN
 F 3 "" H 8000 2050 50  0000 C CNN
 	1    8000 2050
 	1    0    0    -1  
@@ -304,7 +304,7 @@ U 1 1 586EB7D4
 P 8000 3150
 F 0 "R6" V 8080 3150 50  0000 C CNN
 F 1 "20k" V 8000 3150 50  0000 C CNN
-F 2 "Resistors_THT:Resistor_Horizontal_RM10mm" H 8850 3300 50  0001 C CNN
+F 2 "Resistors_THT:Resistor_Horizontal_RM7mm" H 8850 3300 50  0001 C CNN
 F 3 "" H 8000 3150 50  0000 C CNN
 	1    8000 3150
 	1    0    0    -1  
@@ -393,7 +393,7 @@ U 1 1 5876AB08
 P 5850 3950
 F 0 "R10" V 5930 3950 50  0000 C CNN
 F 1 "2.5k" V 5850 3950 50  0000 C CNN
-F 2 "Resistors_THT:Resistor_Horizontal_RM10mm" H 4950 3950 50  0001 C CNN
+F 2 "Resistors_THT:Resistor_Horizontal_RM7mm" H 4950 3950 50  0001 C CNN
 F 3 "" H 5850 3950 50  0000 C CNN
 	1    5850 3950
 	-1   0    0    1   
@@ -403,8 +403,8 @@ L BC413 Q3
 U 1 1 5876AECB
 P 5850 4300
 F 0 "Q3" V 6050 4400 50  0000 C CNN
-F 1 "2N4401" V 5750 4500 50  0000 C CNN
-F 2 "TO_SOT_Packages_THT:TO-92_Inline_Narrow_Oval" V 6268 4300 50  0001 C CIN
+F 1 "2N2222" V 5750 4500 50  0000 C CNN
+F 2 "TO_SOT_Packages_THT:TO-92_Inline_Wide" V 6268 4300 50  0001 C CIN
 F 3 "" H 5850 4300 50  0000 L CNN
 	1    5850 4300
 	0    1    1    0   
@@ -414,8 +414,8 @@ L BC413 Q1
 U 1 1 5876C3F8
 P 3100 4200
 F 0 "Q1" V 3350 4200 50  0000 C CNN
-F 1 "2N4401" V 3050 3950 50  0000 C CNN
-F 2 "TO_SOT_Packages_THT:TO-92_Inline_Narrow_Oval" V 3518 4200 50  0001 C CIN
+F 1 "2N2222" V 3050 3950 50  0000 C CNN
+F 2 "TO_SOT_Packages_THT:TO-92_Inline_Wide" V 3518 4200 50  0001 C CIN
 F 3 "" H 3100 4200 50  0000 L CNN
 	1    3100 4200
 	0    -1   1    0   
@@ -425,8 +425,8 @@ L BC413 Q2
 U 1 1 5876C45D
 P 4000 4400
 F 0 "Q2" V 4236 4400 50  0000 C CNN
-F 1 "2N4401" V 3900 4150 50  0000 C CNN
-F 2 "TO_SOT_Packages_THT:TO-92_Inline_Narrow_Oval" V 4418 4400 50  0001 C CIN
+F 1 "2N2222" V 3900 4150 50  0000 C CNN
+F 2 "TO_SOT_Packages_THT:TO-92_Inline_Wide" V 4418 4400 50  0001 C CIN
 F 3 "" H 4000 4400 50  0000 L CNN
 	1    4000 4400
 	0    -1   1    0   
@@ -459,7 +459,7 @@ U 1 1 5876D49A
 P 2650 4500
 F 0 "R7" V 2730 4500 50  0000 C CNN
 F 1 "220" V 2650 4500 50  0000 C CNN
-F 2 "Resistors_THT:Resistor_Horizontal_RM10mm" V 2800 3800 50  0001 C CNN
+F 2 "Resistors_THT:Resistor_Horizontal_RM7mm" V 2800 3800 50  0001 C CNN
 F 3 "" H 2650 4500 50  0000 C CNN
 	1    2650 4500
 	0    1    1    0   
@@ -470,7 +470,7 @@ U 1 1 5876D8BD
 P 2650 4300
 F 0 "R3" V 2730 4300 50  0000 C CNN
 F 1 "220" V 2650 4300 50  0000 C CNN
-F 2 "Resistors_THT:Resistor_Horizontal_RM10mm" V 2800 3600 50  0001 C CNN
+F 2 "Resistors_THT:Resistor_Horizontal_RM7mm" V 2800 3600 50  0001 C CNN
 F 3 "" H 2650 4300 50  0000 C CNN
 	1    2650 4300
 	0    1    1    0   
@@ -481,7 +481,7 @@ U 1 1 5876E6B9
 P 3100 3850
 F 0 "R8" V 3180 3850 50  0000 C CNN
 F 1 "2.5k" V 3100 3850 50  0000 C CNN
-F 2 "Resistors_THT:Resistor_Horizontal_RM10mm" V 3250 3150 50  0001 C CNN
+F 2 "Resistors_THT:Resistor_Horizontal_RM15mm" V 3250 3150 50  0001 C CNN
 F 3 "" H 3100 3850 50  0000 C CNN
 	1    3100 3850
 	-1   0    0    1   
@@ -492,7 +492,7 @@ U 1 1 5876E786
 P 4000 3850
 F 0 "R9" V 4080 3850 50  0000 C CNN
 F 1 "2.5k" V 4000 3850 50  0000 C CNN
-F 2 "Resistors_THT:Resistor_Horizontal_RM10mm" V 4150 3150 50  0001 C CNN
+F 2 "Resistors_THT:Resistor_Horizontal_RM7mm" V 4150 3150 50  0001 C CNN
 F 3 "" H 4000 3850 50  0000 C CNN
 	1    4000 3850
 	-1   0    0    1   
