@@ -74,7 +74,7 @@
     (grid_origin 84 59)
     (visible_elements FFFFFF7F)
     (pcbplotparams
-      (layerselection 0x00000_fffffffe)
+      (layerselection 0x20000_7ffffffe)
       (usegerberextensions false)
       (excludeedgelayer false)
       (linewidth 0.100000)
@@ -93,7 +93,7 @@
       (padsonsilk true)
       (subtractmaskfromsilk false)
       (outputformat 4)
-      (mirror false)
+      (mirror true)
       (drillshape 1)
       (scaleselection 1)
       (outputdirectory ""))
