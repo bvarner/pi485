@@ -41,7 +41,7 @@ If your protocol doesn't include a start / stop bit, this can be problematic for
 Based upon experiments with the 555 timer latch, and issues with silicon diodes being able to switch fast enough, I've decided to try using
 BJT NPN's as a replacement for the the BAT43 Shottky Diode. In my prototype boards, I've had a lot of noise on the line, and I suspect
 it's due to the diode not being able to switch fast enough to keep the 555 circuit from behaving like a 'normal' missing-pulse detector.
-In this [NPN transistor replacement simulation](http://tinyurl.com/z3urona) things seem to work correctly at the signal level.
+In this [NPN transistor replacement simulation](http://tinyurl.com/hlnfnlf) things seem to work correctly at the signal level.
 
 ## Off The Shelf Module Shortcomings / Circuit Analysis
 
