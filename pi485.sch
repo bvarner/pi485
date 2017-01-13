@@ -93,7 +93,7 @@ encoding utf-8
 Sheet 1 1
 Title "Pi485"
 Date "2017-01-12"
-Rev "1.0.0"
+Rev "1.0.1"
 Comp "Bryan Varner"
 Comment1 ""
 Comment2 ""
@@ -224,12 +224,12 @@ $EndComp
 $Comp
 L GND #PWR07
 U 1 1 586E98F0
-P 5500 5450
-F 0 "#PWR07" H 5500 5200 50  0001 C CNN
-F 1 "GND" H 5500 5300 50  0000 C CNN
-F 2 "" H 5500 5450 50  0000 C CNN
-F 3 "" H 5500 5450 50  0000 C CNN
-	1    5500 5450
+P 5500 5650
+F 0 "#PWR07" H 5500 5400 50  0001 C CNN
+F 1 "GND" H 5500 5500 50  0000 C CNN
+F 2 "" H 5500 5650 50  0000 C CNN
+F 3 "" H 5500 5650 50  0000 C CNN
+	1    5500 5650
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -318,7 +318,7 @@ F 1 "RS485" V 9050 2600 50  0000 C TNN
 F 2 "Connectors_Terminal_Blocks:TerminalBlock_Pheonix_MPT-2.54mm_2pol" H 9200 2375 50  0001 C CNN
 F 3 "" H 9175 2600 50  0001 C CNN
 	1    9200 2600
-	-1   0    0    -1  
+	-1   0    0    1   
 $EndComp
 Text Label 2800 2150 3    60   ~ 0
 (RXDO)_GPIO15
@@ -542,7 +542,7 @@ Connection ~ 6400 4850
 Wire Wire Line
 	5300 5450 5500 5450
 Wire Wire Line
-	5500 5450 5500 5250
+	5500 5250 5500 5650
 Connection ~ 5500 5450
 Wire Wire Line
 	5000 4850 4800 4850
