@@ -27,10 +27,10 @@ a raspberry pi, and track long-term time-series data on my HVAC unit, performanc
 [![Schematic](pi485.png)](pi485.pdf)
 
 PCB Copper Side
-[![Copper-side](pi485-B.Cu.png)](pi485-B.Cu.png)
+[![Copper-side](pi485-B.Cu.png)](pi485-B.Cu.pdf)
 
 PCB Component side (mirrored for iron transfer)
-[![Front-side](pi485-F.png)](pi485-F.png)
+[![Front-side](pi485-F.png)](pi485-F.pdf)
 
 # Design Goals
 
