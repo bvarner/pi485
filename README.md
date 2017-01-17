@@ -20,7 +20,7 @@ PCB Copper Side
 [![Copper-side](pi485-B.Cu.png)](pi485-B.Cu.pdf)
 
 PCB Component side (mirrored for iron transfer)
-[![Front-side](pi485-F.png)](pi485-F.pdf)
+[![Front-side](pi485-brd.png)](pi485-brd.pdf)
 
 
 ## What's in this repo?
