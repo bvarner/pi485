@@ -24,15 +24,13 @@ HVAC system (A Bryant unit) is actually a 'communicating' system as well. I've h
 a raspberry pi, and track long-term time-series data on my HVAC unit, performance, and temperature differentials.
 
 # For the impatient
+[![Schematic](pi485.png)](pi485.pdf)
 
-Schematic
-![Schematic](pi485.png)
-
-PCB Copper side
-![Copper-side](pi485-B.Cu.png)
+PCB Copper Side
+[![Copper-side](pi485-B.Cu.png)](pi485-B.Cu.png)
 
 PCB Component side (mirrored for iron transfer)
-![Front-side](pi485-F.png)
+[![Front-side](pi485-F.png)](pi485-F.png)
 
 # Design Goals
 
