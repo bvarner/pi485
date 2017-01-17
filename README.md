@@ -12,6 +12,17 @@ and transmit / receive as if the network were a normal serial device.
 Recent models of HVAC equipment (so called, "communicating" units) typically use RS-485 for the physical connection.
 This makes deciphering the comms stream a software problem, and one that many people have already started working on!
 
+## Schematic & PCB Layout
+
+[![Schematic](pi485.png)](pi485.pdf)
+
+PCB Copper Side
+[![Copper-side](pi485-B.Cu.png)](pi485-B.Cu.pdf)
+
+PCB Component side (mirrored for iron transfer)
+[![Front-side](pi485-F.png)](pi485-F.pdf)
+
+
 ## What's in this repo?
 
 This repository contains my Kicad EDA source schematics and PCB layouts, as well as rendered PDF plots and a BOM for ordering the parts to
@@ -23,14 +34,6 @@ I've had a couple Raspberry Pi's laying about my home for a few years now. After
 HVAC system (A Bryant unit) is actually a 'communicating' system as well. I've had in the back of my mind for some time a project to hook up
 a raspberry pi, and track long-term time-series data on my HVAC unit, performance, and temperature differentials.
 
-# For the impatient
-[![Schematic](pi485.png)](pi485.pdf)
-
-PCB Copper Side
-[![Copper-side](pi485-B.Cu.png)](pi485-B.Cu.pdf)
-
-PCB Component side (mirrored for iron transfer)
-[![Front-side](pi485-F.png)](pi485-F.pdf)
 
 # Design Goals
 
