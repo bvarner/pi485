@@ -1,47 +1,120 @@
-# pi485 - TTL UART (Raspberry Pi / Arduino) to RS485.
+# Pi485 - UART TTL (Raspberry Pi / Arduino) to RS485
+## What is it?
 
-So, you want to hook up your Raspberry Pi to an RS-485 bus? Fantastic.
+Pi485 lets you connect the RX / TX pins on your Raspberry Pi (/dev/ttyAMA0) or Arduino device to an RS-484 network, 
+and transmit / receive as if the network were a normal serial device. 
 
-You have a few options.
-1. USB Adapters. But if you're here I'm going to assume you want to use the UART, so this really isn't an option, is it?
-2. Complete commercial options, such as the [LinkSprite RS485 module](http://store.linksprite.com/rs485-gpio-shield-for-raspberry-pi-v2/).
-   This is a fantastic device. It's performant, energy-conscious (uses a version of the MAX485 with power-management features) and makes
-   use of MOSFETS for switching LED loads in the circuit. The one down side I've seen is that according to the 
-   [schematic](https://s3.amazonaws.com/linksprite/Shields/RS485_RPI/RS485+Shield+for+RPi+B%2B.PDF) it appears R0 (the RS485 termination
-   resistor) is always present, although not given a value. I do not have one of these devices to 'tinker' with. I trust it would work well.
-3. Commercial MAX485 Modules. These modules provide a breakout-board approach to wiring up a MAX485 chip. A popular example of this kind of
-   device is the [LC Technology Co. TTL to RS-485 module](http://www.chinalctech.com/index.php?_m=mod_product&_a=view&p_id=811). This device
-   in particular was the starting point of my experiments and investigations. Again, this device has the unfortunate down-side of a soldered
-   on termination resistor.
-4. Build your own from discrete components!
+## What can it do?
+
+* Create a low-cost RS-485 network of devices using serial I/O.
+* Communicate with other RS-485 networks.
+
+Recent models of HVAC equipment (so called, "communicating" units) typically use RS-485 for the physical connection.
+This makes deciphering the comms stream a software problem, and one that many people have already started working on!
 
 ## What's in this repo?
 
-In this repo, you'll find schematics, parts lists, diagrams, and photos of my tests with RS-485 interfacing a Raspberry Pi UART.
+This repository contains my Kicad EDA source schematics and PCB layouts, as well as rendered PDF plots and a BOM for ordering the parts to
+build your own. Oh, and there's documentation, too.
 
-## Please, keep in mind...
+## Project Background
 
-* I am not a professional. In reality I'm a software engineer who got into this out of curiosity. I have always detested black-boxes 
-(things which I cannot take apart or understand completely) and it's my nature to dismantle, analyze, evaluate, and eventually take that 
-knowlege and apply it to things I synthesize. But, I consider electronics a 'hobby'. Please treat it as such.
+I've had a couple Raspberry Pi's laying about my home for a few years now. After running across the Infinitude project, I realized that my 
+HVAC system (A Bryant unit) is actually a 'communicating' system as well. I've had in the back of my mind for some time a project to hook up
+a raspberry pi, and track long-term time-series data on my HVAC unit, performance, and temperature differentials.
 
-* TTL signaling of serial data is has values wehre you think they should be, but it idles 'high'. 
-A logical 0 is actually GND. A Logical 1 is actually +V. But when there are no transmissions taking place, the pin holds 'high', at +V.
-I personally found [this SparkFun tutorial](https://www.sparkfun.com/tutorials/215) to be highly educational on the nuances of TTL.
-If your protocol doesn't include a start / stop bit, this can be problematic for converting TTL _transmissions_ to RS-485.
+# Design Goals
 
-# Goals of this design
+Ideally, I wanted to create a project here that was:
 
-1. Jumperable termination (enabling multi-node support)
-2. Latched DE / RE drive of the Max485, using a modified missing pulse 555 circuit.
-3. TX / RX LED output.
-4. PWR LED Output.
-5. Additional +5v / GND supply header to use as a power input (allowing back-feeding of VCC / GND to TTL source)
+* A Simple To Understand Circuit
+* Easily fabricated by relative beginners.
+* Reasonably inexpensive to source parts for and build (~$20 or less)
+* Optionally Handle latching the DE / RE pins on the Max485 based upon the UART TX output.
+* Include a jumper for removing the termination resistor from the A/B lines of the RS485 bus.
 
-Based upon experiments with the 555 timer latch, and issues with silicon diodes being able to switch fast enough, I've decided to try using
-BJT NPN's as a replacement for the the BAT43 Shottky Diode. In my prototype boards, I've had a lot of noise on the line, and I suspect
-it's due to the diode not being able to switch fast enough to keep the 555 circuit from behaving like a 'normal' missing-pulse detector.
-In this [NPN transistor replacement simulation](http://tinyurl.com/hlnfnlf) things seem to work correctly at the signal level.
+To achieve these goals the PCB layout in this repository is a single-side clad board, components on the front, copper on the back.
+The traces are large (0.4mm!), the pads are oversized where possible, and I've allowed plenty of clearance between traces and pads, making
+it possible to touch-up a hot-iron transfer with an ink-resist pen. You may even be able to draw the existing tracks with a pen free-hand.
+
+For tooling, you'll need the 'standard' PCB etching supplies; a bottle of Ferric Chloride, some isopropyl alcohol, gloves, 
+a dish to do the etching, and an appropriately sized drill bit. (I had a 0.040" bit in a set) I'd recommend you have a drill press, too.
+
+I highly recommend doing a hot-iron transfer method, which uses a laser printer and some glossy photo-type paper. You melt the printout onto
+the copper side of the board with a hot iron. It works surprisingly well.
+
+I'd also use a kitchen oven to bake the board once it's tinned, to reflow the solder before drilling the holes.
+
+## Unique Features
+* Termination Jumper. None of the commercial offerings or existing modules I've seen allow you to disable the termination resistor. On a 
+multi-module RS-485 network, it's necessary that middle-nodes not have the termination resistor in the circuit, or the bus signals will 
+deteriorate significantly.
+* Latched DE / RE pins on the MAX485, with a 'latch disable' jumper. If you want to disable the DE latching (TX driven Driver mode) and 
+force your device to be 'read only', you can add a jumper to the "Latch Disable" header, which will pull the 555 output to always be 'low'.
+
+# Circuit Analysis / Explanation
+
+## TTL Serial Communication Basics
+TTL signaling of serial data idles 'high'. When data is being transmitted on the TX pin, it first drops 'low' (a start bit), 
+transmits it's data, and then sends a stop bit. In TTL, a logical 0 is GND. A Logical 1 is +V. But when there are no transmissions taking 
+place, the pin holds 'high', at +V. I personally found [this SparkFun tutorial](https://www.sparkfun.com/tutorials/215) to be highly 
+educational on the nuances of TTL. If your protocol doesn't include a start / stop bit, this can be problematic for converting TTL 
+_transmissions_ to RS-485.
+
+## Schematic Breakdown
+The [current schematic](pi485.pdf) is fairly straightforward.
+
+All of the resistor values connected directly to LEDs should be double-checked for your LED selections.
+
+## Power Input / Signal Connections
+Starting in the upper left quadrant of the schematic, you have the input header pins. There's a second pair of headers for an additional
++5vdc and ground connections. I use the second two-pin header to connect my power supply, then connect the other 4 pins to the Pi providing
+power to the RaspberryPi and connecting the UART output pins.
+
+## RX / TX LED Signaling
+The RX & TX lines are tapped with 270ohm resistors to pull the 5vdc down to an appropriate level for tripping the NPN transistors in the 
+lower left side of the schematic. When the voltage on the RX / TX pins goes LOW (signaling data, not idle), the NPN halts the flow of
+ electricity from the Collector to the Emitter (opens the switch), leaving the only path to ground being through the LEDs.
+
+## Power Filtering & Power LED 
+Also in the bottom left quadrant we have a couple of decoupling filter capacitors to help smooth out fluctuations in the 5vdc supply,
+ and a 'power' LED.
+
+## UART TX Connections
+The TX line is connected to the trigger pin of a 555 timer, and then to the Data Input pin of the Max485.
+
+The 555 timer circuit is a slightly modified missing pulse detector.
+
+When the TX power drops below the threshold defined by the 3.9k resistor (R2), the output of the 555 goes HIGH. After a very short delay,
+(it switches ~38400hz) the output will go back low, unless the the TX line input is still low. In a typical missing pulse detector, the 555
+output will go back low regardless of the TX line (555 trigger) input. The addition of the shottky diode changes this configuration, and 
+holds the output steady so long as the input is steady. The diode has to be capable of switching reverse voltage bias fast enough to keep
+the input lower than the threshold / discharge output, but without affecting the input signal line. Hence the use of the BAT43, rather than
+a 'normal' silicon diode.
+
+The output of the 555 timer is used to set the input on the DE / RE (Driver Enable / Receiver Enable) pins on the max485. When HIGH, the 
+Driver Enable is set, putting the Max485 into 'master' mode and broadcasting on the 485 bus. When LOW, the RE pin (which has inverted logic
+on a Max485) is enabled, putting the Max485 into 'receive' mode.
+
+If there is a jumper present on the CTRL pin (5) of the 555 timer, the 555 output will always be 'LOW', holding the Max485 in Receive mode,
+effectively disabling the latching.
+
+## UART RX Connection
+Moving along the RX line, it's connected to the Data Output pin of the Max485.
+
+## Max485 Output
+The output pins of the Max485 are configured to setup a high-resistance reference against the current 'ground', and to allow the termination
+(120 Ohm) resistor to be removed from the circuit.
+
+## Putting it all together...
+The circuit provides basic decoupling / power filtering, some passive LED monitoring of RX / TX lines, and a latch-based DE / RE driver 
+logic for the Max485, along with a basic resistance network to setup the A/B differentials on the RS-485 bus.
+
+# Analysis of other products / options
+First off, I am not a professional. In reality I'm a software engineer who got into this out of curiosity. I have always detested 
+black-boxes (things which I cannot take apart or understand completely) and it's my nature to dismantle, analyze, evaluate, and eventually 
+take that knowlege and apply it to things I synthesize. But, I consider electronics a 'hobby'. My comments here are my own personal opinions
+and are not an endorsement.
 
 ## Off The Shelf Module Shortcomings / Circuit Analysis
 
@@ -51,11 +124,12 @@ It seems that off-the-shelf modules tend to approach the MAX485 series of half-d
 converter, suitable for locating at the _endpoints_ of a very simplistic master-slave network. In order to drop in multiple modules 
 (multiple slaves) or enable multi-master communications and form a true network, there's some hardware work that needs to be done.
 
-* Soldered on Termination
+## Things I take issue with...
+### Soldered on Termination
 For example, the LinkSprite module and the LC Tech modules both carry 120Ohm termination resistors, and no jumper header to remove it from
 the circuit. The only practical option to add these modules as a network node other than an 'end point' is to unsolder that resistor.
 
-* DE / RE Pin Hysteresis
+### DE / RE Pin Hysteresis
 Additionally, the LC Tech module has the DE and RE pins of the Max485 directly accessible over headers but provides no extra circuitry to 
 drive the input to those pins based off the TTL TX. These two pins of a Max485 are responsible for setting the duplex state of the chip 
 (Driver Enable / Receiver Enable) for either sending or receiving data. The RE pin is active on Logic Low (GND) and the DE pin is active on 
@@ -109,5 +183,26 @@ According to the stuff I've read on RS-485, a driver 'idle' would be A+, B- pote
 anything that will lead me to believe RE high / DE low would result in A+, B- potentials being emitted on output lines of the chip.
 
 Nevertheless, it must work... right? Unless the LinkSprite and LC Tech components aren't being tested in multi-master half-duplex 
-networks. I find that situation highly likely, since they both carry soldered-on termination resistors that cannot be jumper-disabled.
+networks. I have a feeling that's exactly what's going on, since they both carry soldered-on termination resistors that cannot be 
+jumper-disabled. That means that if you introduced a network of these devices with more than two nodes, you'd have pretty significant signal
+degradation.
+
+# Build Instructions
+
+1. Start off by customizing the resistor values for your LEDs. I used [http://ledcalc.com/] to help inspire my choices.
+2. Use KiCad's PCB editor (pcbnew) to customize any footprint changes.
+3. Plot the copper to a PDF. Print the [back copper PDF](pi485-B.Cu.pdf) layer on a laser printer, using glossy photo paper.
+4. Print the silkscreen [front layers to a PDF](pi485-F.pdf). Print the PDF on a laser printer, using glossy photo paper.
+5. Cut your board (70mm x 100mm)
+6. Transfer the copper printout using a hot iron and some water.... (youtube reference coming). Touchup with a resist pen if necessary.
+7. Etch the board.
+8. Clean the board.
+9. Tin the board.
+10. Reflow the board (bake it in an oven).
+11. Drill the component holes.
+12. Place & solder components.
+13. Assemble!
+
+
+
 
