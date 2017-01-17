@@ -1,4 +1,4 @@
-update=Thursday, January 05, 2017 'PMt' 12:41:06 PM
+update=Wednesday, January 11, 2017 'PMt' 04:28:00 PM
 version=1
 last_client=kicad
 [pcbnew]
@@ -23,6 +23,8 @@ ModuleOutlineThickness=0.150000000000
 [cvpcb]
 version=1
 NetIExt=net
+[general]
+version=1
 [eeschema]
 version=1
 LibDir=
@@ -113,5 +115,3 @@ LibName83=Worldsemi
 LibName84=Xicor
 LibName85=zetex
 LibName86=Zilog
-[general]
-version=1
