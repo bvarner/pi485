@@ -23,6 +23,17 @@ I've had a couple Raspberry Pi's laying about my home for a few years now. After
 HVAC system (A Bryant unit) is actually a 'communicating' system as well. I've had in the back of my mind for some time a project to hook up
 a raspberry pi, and track long-term time-series data on my HVAC unit, performance, and temperature differentials.
 
+# For the impatient
+
+Schematic
+![Schematic](pi485.pdf)
+
+PCB Copper side
+![Copper-side](pi485-B.Cu.pdf)
+
+PCB Component side (mirrored for iron transfer)
+![Front-side](pi485-F.pdf)
+
 # Design Goals
 
 Ideally, I wanted to create a project here that was:
