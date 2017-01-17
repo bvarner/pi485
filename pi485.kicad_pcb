@@ -1092,7 +1092,7 @@
   (gr_text +5vDC (at 24.450419 55.825 90) (layer F.SilkS)
     (effects (font (size 1.25 1.25) (thickness 0.2)))
   )
-  (gr_text "Pi485\nRev 1.0.4\n2017-1-13" (at 67.871 18.36) (layer F.SilkS)
+  (gr_text "Pi485\nRev 1.0.4\n2017-1-16" (at 67.871 18.36) (layer F.SilkS)
     (effects (font (size 1.5 1.5) (thickness 0.3)))
   )
   (gr_line (start 82.330419 12.317999) (end 12.330419 12.317999) (angle 90) (layer Edge.Cuts) (width 0.1))
