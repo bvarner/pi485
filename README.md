@@ -12,6 +12,11 @@ and transmit / receive as if the network were a normal serial device.
 Recent models of HVAC equipment (so called, "communicating" units) typically use RS-485 for the physical connection.
 This makes deciphering the comms stream a software problem, and one that many people have already started working on!
 
+## How it looks
+![Board Zero](board_zero.jpg)
+
+![Board Zero Active](board_zero_active.jpg)
+
 ## Schematic & PCB Layout
 
 [![Schematic](pi485.png)](pi485.pdf)
