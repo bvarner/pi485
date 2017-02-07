@@ -5,7 +5,11 @@ The PCB for this project is the most 'simple' of the two to etch yourself. Most 
 oversized, the copper traces are significantly wider and spaced far enough that it's possible 
 to create a PCB with a resist marker by hand. 
 
+## PCB Layout
 ![Copper Layer](plots/pi485-B.Cu.png) ![Front Layers](plots/pi485-brd.png)
+
+## Schematic
+![Schematic](plots/pi485.png)
 
 # Design Goals
 * [Simple / Easy To Understand Circuit](plots/pi485.png)

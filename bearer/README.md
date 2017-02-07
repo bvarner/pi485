@@ -23,7 +23,7 @@ and addresses the shortcomings I uncovered while working on the standalone Pi485
 * Latch the DE / RE pins on the Max485 based upon the UART TX activity, but allow that to be disabled (force read-only mode)
 * Include jumper termination for the A/B lines of the RS485 bus.
 
-For in-depth details on the function of [the circuit](plots/pi485bearer.png) refer to the [Standalone Module README](../standalone/README.MD).
+For in-depth details on the function of [the circuit](plots/pi485bearer.png) refer to the [Standalone Module README](../standalone/README.md).
 
 # Build Instructions
 
