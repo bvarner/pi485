@@ -46,14 +46,8 @@ The bearer board adds the 555 latch circuit for DE/RE control from the TX line, 
 jumper termination control from the standalone board design (if you unsolder the 120Ohm resistor on the LC Tech module).
 
 In my experience, if you want to make more than one of these devices, it's much cheaper to purchase the LC Tech modules and build Pi485 
-bearer boards to hold them. The down-side is that the bearer board isn't as friendly for beginner to solder, or as easy to etch at home with 
-basic tools and chemicals. Also, in order to get the jumper controlled termination, you have to unsolder one of the resistors from the LC 
-Tech modules.
-
-As an example of the price difference, just the Max485 IC alone current costs ~$2.65 USD in quantities under 20. When you figure in the cost
-of the other components that come on the LC Tech module (screw terminals, power LED, resistors, etc.) you'll quickly find it's much cheaper
-to use the LC Tech modules and build the bearer board.
-
+bearer boards to hold them. The down-side is that the bearer board isn't quite as friendly for a beginner to solder. However the current
+bearer iteration does feature the large (1.0mm) traces to make it easier to chemical etch with a hot-iron laser printer transfer.
 
 ## Project Background
 I've had a couple Raspberry Pi's laying about my home for a few years now. After running across the 
