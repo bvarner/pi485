@@ -23,8 +23,7 @@ bus, "power management", or enabling you to setup your UART tty before communica
 you can simply hook up positive voltage to the control pin, and the circuit will always be on.
 
 ## What's in this repo?
-This repository contains my kicad EDA source schematics, PCB layouts, and rendered PDF plots of both.
-Oh, and there's documentation, too.
+This repository contains my kicad EDA source schematics, PCB layouts, and SVG plots of the schematics and PCB layers.
 
 ### Standalone
 There is a standalone board you can assemble from discrete components. If you're going to make an order from your supplier of choice, I 
@@ -33,16 +32,15 @@ spacing rules have been tuned for home-etching and hand soldering with imprecise
 
 ### Bearer
 The bearer board is designed to hold an LC Technologies RS-485 board (or equivalent).
-These boards are based around a max485 in a surface-mount configuration, and include filtering capacitors, a power LED, and
-some pull-up resistors. The bearer board adds the 555 latch circuit for DE/RE control from the TX line, power on/off, and jumperable 
-termination from the standalone board (if you unsolder the 120Ohm resistor on the LC Tech module).
+These boards are based around a max485 in a surface-mount, slew-rate limited configuration, and include filtering capacitors, power LED, and
+some pull-up resistors. The bearer board adds the 555 latch circuit for DE/RE control from the TX line, RX / TX LEDS, power on/off, and 
+jumper termination features from the standalone board design (if you unsolder the 120Ohm resistor on the LC Tech module).
 
 ## Project Background
-
-I've had a couple Raspberry Pi's laying about my home for a few years now. After running across the Infinitude project, I realized that my 
+I've had a couple Raspberry Pi's laying about my home for a few years now. After running across the 
+[Infinitude project](https://github.com/nebulous/infinitude), I realized that my 
 HVAC system (a Bryant unit) is actually a 'communicating' system as well. I've had in the back of my mind for some time a project to hook up
 a raspberry pi, and track long-term time-series data on my HVAC unit, performance, and temperature differentials.
-
 
 
 
