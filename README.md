@@ -49,8 +49,7 @@ The bearer board adds the 555 latch circuit for DE/RE control from the TX line, 
 jumper termination control from the standalone board design (if you unsolder the 120Ohm resistor on the LC Tech module).
 
 In my experience, if you want to make more than one of these devices, it's much cheaper to purchase the LC Tech modules and build Pi485 
-bearer boards to hold them. The down-side is that the bearer board isn't quite as friendly for a beginner to solder. However the current
-bearer iteration does feature the large (1.0mm) traces to make it easier to chemical etch with a hot-iron laser printer transfer.
+bearer boards to hold them.
 
 ## Project Background
 I've had a couple Raspberry Pi's laying about my home for a few years now. After running across the 
