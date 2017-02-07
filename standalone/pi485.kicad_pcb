@@ -94,7 +94,7 @@
       (plotinvisibletext false)
       (padsonsilk true)
       (subtractmaskfromsilk false)
-      (outputformat 4)
+      (outputformat 5)
       (mirror false)
       (drillshape 1)
       (scaleselection 1)
@@ -1155,7 +1155,7 @@
   (gr_text +5vDC (at 27.866 56.46 90) (layer F.SilkS)
     (effects (font (size 1.25 1.25) (thickness 0.2)))
   )
-  (gr_text "Pi485\nRev 1.1.0\n2017-1-18" (at 25.341 19.34) (layer F.SilkS)
+  (gr_text "Pi485\nRev 1.1.0" (at 25.341 18.15) (layer F.SilkS)
     (effects (font (size 1.5 1.5) (thickness 0.3)))
   )
 
