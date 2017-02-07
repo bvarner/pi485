@@ -1,7 +1,7 @@
 # Pi485 - UART TTL (Raspberry Pi / Arduino) to RS485
 ## What is it?
 Pi485 lets you connect the RX / TX pins on your Raspberry Pi (/dev/ttyAMA0) or Arduino device to an RS-484 network, 
-and transmit / receive as if the network were a normal serial device. 
+and transmit / receive as if the network were a normal serial device.
 
 ## What can it do?
 * Create a low-cost RS-485 network of devices using serial I/O.
@@ -22,8 +22,14 @@ force your device to be 'read only', you can add a jumper to the "Latch Disable"
 bus, "power management", or enabling you to setup your UART tty before communications begin. If you prefer the 'always on' approach, 
 you can simply hook up positive voltage to the control pin, and the circuit will always be on.
 
-## What's in this repo?
-This repository contains my kicad EDA source schematics, PCB layouts, and SVG plots of the schematics and PCB layers.
+## What's in this repository?
+This repository contains [KiCad EDA](http://kicad-pcb.org/) source schematics, PCB layouts, and rendered SVG plots.
+
+The SVG Plots can be used to print your own PCB, or you could try using them as a template for making your own.
+
+I recommend using a hot-iron transfer of a laser-printed printout on glossy paper as a good starting point. The PCB layouts in this repo 
+have been tweaked to increase trace width, spacing, and pad sizes to help with this method, and to make it easier to touch up traces with
+a resist pen if necessary. Personally, I don't have fancy CNC equipment at home, so I etch my boards chemically and drill them on a press.
 
 ### Standalone
 ![Copper Layer](standalone/plots/pi485-B.Cu.png) ![Front Layers](standalone/plots/pi485-brd.png)
@@ -31,9 +37,6 @@ This repository contains my kicad EDA source schematics, PCB layouts, and SVG pl
 This complete solution can be assembled from discrete components. It uses a Max485 IC, and NE555 timer, and some discrete components to 
 implement a hardware level RS-485 interface that automatically controls the DE / RE pins based on TX activity, allows for jumper 
 configuration of termination, and adds blinken-lights for TX / RX, and Power.
-
-This layout was designed for an entry-level hobby maker with very large traces, tweaked pad sizes, and generous spacing on a single-side 
-copper clad board.
 
 ### Bearer
 ![Copper Layer](bearer/plots/pi485bearer-B.Cu.png) ![Front Layers](bearer/plots/pi485bearer-brd.png)
