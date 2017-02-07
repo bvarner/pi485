@@ -28,18 +28,18 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:pi485carrier-cache
+LIBS:pi485bearer-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 2
-Title "Pi485"
+Title "Pi485 Bearer"
 Date "2017-01-18"
 Rev "1.1.0"
 Comp "Bryan Varner"
 Comment1 ""
-Comment2 "Size resistor values R1, R3, and R7 appropriately for your LED choices."
+Comment2 "Size resistor values R3 and R4 appropriately for your LED choices."
 Comment3 "Implements half-duplex with TX latched RE/DE"
 Comment4 "Raspberry Pi / Arduino UART to RS485"
 $EndDescr
@@ -135,7 +135,7 @@ F 3 "" H 6400 4150 50  0000 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L CAP C1
+L C C1
 U 1 1 5881B0E4
 P 6150 5450
 F 0 "C1" V 6250 5600 50  0000 C CNN
@@ -290,7 +290,7 @@ F 3 "" H 4000 3850 50  0000 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L DIODE D3
+L D D3
 U 1 1 5881B0FC
 P 5850 4400
 F 0 "D3" H 5850 4665 50  0000 C CNN
@@ -351,7 +351,7 @@ L R R7
 U 1 1 5881F20C
 P 7550 3150
 F 0 "R7" H 7620 3196 50  0000 L CNN
-F 1 "R" H 7620 3105 50  0000 L CNN
+F 1 "120" H 7620 3105 50  0000 L CNN
 F 2 "Resistors_THT:Resistor_Horizontal_RM10mm" V 7480 3150 50  0001 C CNN
 F 3 "" H 7550 3150 50  0000 C CNN
 	1    7550 3150
@@ -383,7 +383,7 @@ Wire Wire Line
 	6400 5050 6000 5050
 Connection ~ 6400 4850
 Wire Wire Line
-	5000 5450 5900 5450
+	5000 5450 6000 5450
 Wire Wire Line
 	5500 5250 5500 5650
 Connection ~ 5500 5450
@@ -421,7 +421,7 @@ Wire Wire Line
 Wire Wire Line
 	6400 3800 6400 4000
 Wire Wire Line
-	5650 4400 4850 4400
+	5700 4400 4850 4400
 Wire Wire Line
 	2900 4300 2900 4850
 Wire Wire Line
@@ -453,7 +453,7 @@ Wire Wire Line
 	4000 3700 4000 3000
 Connection ~ 4000 3000
 Wire Wire Line
-	6050 4400 6400 4400
+	6000 4400 6400 4400
 Connection ~ 6400 5050
 Wire Wire Line
 	5000 5350 5000 4850
@@ -508,9 +508,9 @@ Wire Wire Line
 Wire Wire Line
 	6650 4650 6650 3450
 Wire Wire Line
-	6650 3450 5800 3450
+	5800 3450 6650 3450
 Wire Wire Line
-	5800 3450 5800 2850
+	5800 2850 5800 3450
 Wire Wire Line
 	5800 3000 5900 3000
 Wire Wire Line
@@ -524,4 +524,6 @@ Wire Wire Line
 	7550 2500 7550 2650
 Wire Wire Line
 	5400 2000 7200 2000
+Wire Wire Line
+	6400 5450 6300 5450
 $EndSCHEMATC

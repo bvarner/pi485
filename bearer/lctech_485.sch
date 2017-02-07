@@ -28,7 +28,7 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:pi485carrier-cache
+LIBS:pi485bearer-cache
 EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268

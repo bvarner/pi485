@@ -1,10 +1,6 @@
-update=22/05/2015 07:44:53
+update=Tuesday, February 07, 2017 'AMt' 11:40:20 AM
 version=1
 last_client=kicad
-[general]
-version=1
-RootSch=
-BoardNm=
 [pcbnew]
 version=1
 LastNetListRead=
@@ -60,3 +56,5 @@ LibName26=opto
 LibName27=atmel
 LibName28=contrib
 LibName29=valves
+[general]
+version=1
