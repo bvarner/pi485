@@ -9,7 +9,7 @@ to create a PCB with a resist marker by hand.
 ![Copper Layer](plots/pi485-B.Cu.png) ![Front Layers](plots/pi485-brd.png)
 
 ## Schematic
-![Schematic](plots/pi485.png)
+![Schematic](plots/pi485.svg)
 
 # Design Goals
 * [Simple / Easy To Understand Circuit](plots/pi485.png)
