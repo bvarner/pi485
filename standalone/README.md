@@ -8,7 +8,7 @@ to create a PCB with a resist marker by hand.
 ![Copper Layer](plots/pi485-B.Cu.png) ![Front Layers](plots/pi485-brd.png)
 
 # Design Goals
-* Simple To Understand Circuit
+* [Simple / Easy To Understand Circuit](plots/pi485.png)
 * Easily fabricated at home with simple tooling
 * Reasonably inexpensive to source parts for and build (~$20 or less)
 * Latch the DE / RE pins on the Max485 based upon the UART TX activity, but allow that to be disabled (force read-only mode)
@@ -40,7 +40,7 @@ educational on the nuances of TTL. If your protocol doesn't include a start / st
 _transmissions_ to RS-485.
 
 ## Schematic Breakdown
-The [current schematic](plots/pi485.svg) is fairly straightforward.
+The [current schematic](plots/pi485.png) is fairly straightforward.
 
 All of the resistor values connected directly to LEDs should be double-checked for your LED selections.
 
