@@ -87,7 +87,7 @@
       (mirror true)
       (drillshape 1)
       (scaleselection 1)
-      (outputdirectory ""))
+      (outputdirectory plots/))
   )
 
   (net 0 "")
@@ -844,7 +844,7 @@
   )
 
   (dimension 30 (width 0.3) (layer F.Fab)
-    (gr_text "30.000 mm" (at 102.815 35.955 270) (layer F.Fab) (tstamp 588A73ED)
+    (gr_text "30.000 mm" (at 102.815 35.955 270) (layer F.Fab) (tstamp 5899FAC2)
       (effects (font (size 1.5 1.5) (thickness 0.3)))
     )
     (feature1 (pts (xy 99.465 50.955) (xy 104.165 50.955)))
@@ -860,7 +860,7 @@
   (gr_line (start 99.465 20.955) (end 99.465 50.955) (layer Edge.Cuts) (width 0.15))
   (gr_line (start 99.465 20.955) (end 37.465 20.955) (layer Edge.Cuts) (width 0.15))
   (dimension 62 (width 0.3) (layer F.Fab)
-    (gr_text "62.000 mm" (at 68.465 16.605) (layer F.Fab) (tstamp 588A73EE)
+    (gr_text "62.000 mm" (at 68.465 16.605) (layer F.Fab) (tstamp 5899FAC3)
       (effects (font (size 1.5 1.5) (thickness 0.3)))
     )
     (feature1 (pts (xy 99.465 20.955) (xy 99.465 15.255)))

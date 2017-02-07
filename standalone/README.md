@@ -27,16 +27,6 @@ the copper side of the board with a hot iron. It works surprisingly well.
 
 I'd also use a kitchen oven to bake the board once it's tinned, to reflow the solder before drilling the holes.
 
-## Schematic & PCB Layout
-Schematic
-[![Schematic](pi485.png)](pi485.pdf)
-
-PCB Copper Side
-[![Copper-side](pi485-B.Cu.png)](pi485-B.Cu.pdf)
-
-PCB Component side (mirrored for iron transfer)
-[![Front-side](pi485-brd.png)](pi485-brd.pdf)
-
 # Circuit Analysis / Explanation
 
 ## TTL Serial Communication Basics
