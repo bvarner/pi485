@@ -26,14 +26,18 @@ you can simply hook up positive voltage to the control pin, and the circuit will
 This repository contains my kicad EDA source schematics, PCB layouts, and SVG plots of the schematics and PCB layers.
 
 ### Standalone
+![Copper Layer](standalone/plots/pi485-B.Cu.png) ![Front Layers](standalone/plots/pi485-brd.png)
+
 This complete solution can be assembled from discrete components. It uses a Max485 IC, and NE555 timer, and some discrete components to 
 implement a hardware level RS-485 interface that automatically controls the DE / RE pins based on TX activity, allows for jumper 
 configuration of termination, and adds blinken-lights for TX / RX, and Power.
 
-This layout was designed for an entry-level hobby maker with very larget traces, tweaked pad sizes, and generous spacing on a single-side 
+This layout was designed for an entry-level hobby maker with very large traces, tweaked pad sizes, and generous spacing on a single-side 
 copper clad board.
 
 ### Bearer
+![Copper Layer](bearer/plots/pi485bearer-B.Cu.png) ![Front Layers](bearer/plots/pi485bearer-brd.png)
+
 The bearer board is designed to hold an [LC Tech MAX485 module](http://www.chinalctech.com/index.php?_m=mod_product&_a=view&p_id=811), which
 is an inexpensive module based around a max485 in a surface-mount, slew-rate limited configuration. 
 These modules include some support components like power filtering capacitors, a power LED, and some pull-up / pull-down resistors.
