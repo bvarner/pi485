@@ -2,18 +2,15 @@
 
 This is a stand-alone module for RS-485 communication, utilizing a MAX485 IC and a NE555 Timer IC.
 The PCB for this project is the most 'simple' of the two to etch yourself. Most of the pads are 
-larger sizes, the copper traces are significantly wider, and spaced well enough that it's possible 
-to create a PCB with a resist marker alone. However, I do suggest you try the hot-iron transfer from
-a laser-printer on glossy paper.
+oversized, the copper traces are significantly wider and spaced far enough that it's possible 
+to create a PCB with a resist marker by hand. 
 
 # Design Goals
-Ideally, I wanted to create a project here that was:
-
-* A Simple To Understand Circuit
-* Easily fabricated by relative beginners.
+* Simple To Understand Circuit
+* Easily fabricated at home with simple tooling
 * Reasonably inexpensive to source parts for and build (~$20 or less)
-* Optionally Handle latching the DE / RE pins on the Max485 based upon the UART TX output.
-* Include a jumper for removing the termination resistor from the A/B lines of the RS485 bus.
+* Latch the DE / RE pins on the Max485 based upon the UART TX activity, but allow that to be disabled (force read-only mode)
+* Include jumper termination for the A/B lines of the RS485 bus.
 
 To achieve these goals the PCB layout in this repository is a single-side clad board, components on the front, copper on the back.
 The traces are large (0.4mm!), the pads are oversized where possible, and I've allowed plenty of clearance between traces and pads, making
@@ -22,10 +19,14 @@ it possible to touch-up a hot-iron transfer with an ink-resist pen. You may even
 For tooling, you'll need the 'standard' PCB etching supplies; a bottle of Ferric Chloride, some isopropyl alcohol, gloves, 
 a dish to do the etching, and an appropriately sized drill bit. (I had a 0.040" bit in a set) I'd recommend you have a drill press, too.
 
-I highly recommend doing a hot-iron transfer method, which uses a laser printer and some glossy photo-type paper. You melt the printout onto
-the copper side of the board with a hot iron. It works surprisingly well.
+I highly recommend doing a hot-iron transfer of laser printer toner. Print the SVGs using a laser printer onto glossy photo (or magazine)
+paper. Heat the board with an iron, then stick the printout to the board. Press the printout firmly to the board using the hot iron (you're
+goal is to melt the toner to the board surface), and then start soaking with water and continue steaming. Firm pressure and heat will do a
+good job of sticking the printout onto the board. It works surprisingly well. Once you've steamed the paper (or soaked it in water) and it
+starts to fall of the board, you can touchup any trace or pad issues with a resist pen, and etch the board.
 
-I'd also use a kitchen oven to bake the board once it's tinned, to reflow the solder before drilling the holes.
+I also use a kitchen oven to bake the board once it's tinned. Getting it up to ~425 degrees F does a nice job of reflowing the solder,
+which makes it much easier to drill the holes.
 
 # Circuit Analysis / Explanation
 
@@ -37,23 +38,26 @@ educational on the nuances of TTL. If your protocol doesn't include a start / st
 _transmissions_ to RS-485.
 
 ## Schematic Breakdown
-The [current schematic](pi485.pdf) is fairly straightforward.
+The [current schematic](plots/pi485.svg) is fairly straightforward.
 
 All of the resistor values connected directly to LEDs should be double-checked for your LED selections.
 
 ## Power Input / Signal Connections
-Starting in the upper left quadrant of the schematic, you have the input header pins. There's a second pair of headers for an additional
-+5vdc and ground connections. I use the second two-pin header to connect my power supply, then connect the other 4 pins to the Pi providing
-power to the RaspberryPi and connecting the UART output pins.
+Starting in the upper left quadrant of the schematic, you have the input header pins (P1). There's a second pair of headers for an additional
++5vdc and ground connections (P2). I use the second two-pin header to connect my power supply, then connect the other pins to the Pi providing
+power to the RaspberryPi and connecting the UART pins and 485PWR signal line.
 
 ## RX / TX LED Signaling
 The RX & TX lines are tapped with 270ohm resistors to pull the 5vdc down to an appropriate level for tripping the NPN transistors in the 
 lower left side of the schematic. When the voltage on the RX / TX pins goes LOW (signaling data, not idle), the NPN halts the flow of
- electricity from the Collector to the Emitter (opens the switch), leaving the only path to ground being through the LEDs.
+ electricity from the Collector to the Emitter (opens the switch), leaving the only path to ground being through the LEDs. Make sure you 
+ size your R3 and R7 resistors appropriately for your LEDs.
 
-## Power Filtering & Power LED 
-Also in the bottom left quadrant we have a couple of decoupling filter capacitors to help smooth out fluctuations in the 5vdc supply,
- and a 'power' LED.
+## Power Filtering, Switching, & Power LED 
+Moving to the top-right portion of the schematic, there's another NPN controlling power flow from VCC to a few decoupling filter capacitors,
+a power LED, and the positive supply voltage of the rest of the circuit. If you connect the 485PWR pin of P1 to a +3.3v header, you can make 
+the circuit 'always on'. If you'd rather have 'control' over the circuit (for example, so you can setup the UART configuration and _then_ 
+turn on the hardware) you can drive the 485PWR pin high with a standard GPIO pin.
 
 ## UART TX Connections
 The TX line is connected to the trigger pin of a 555 timer, and then to the Data Input pin of the Max485.
@@ -71,8 +75,8 @@ The output of the 555 timer is used to set the input on the DE / RE (Driver Enab
 Driver Enable is set, putting the Max485 into 'master' mode and broadcasting on the 485 bus. When LOW, the RE pin (which has inverted logic
 on a Max485) is enabled, putting the Max485 into 'receive' mode.
 
-If there is a jumper present on the CTRL pin (5) of the 555 timer, the 555 output will always be 'LOW', holding the Max485 in Receive mode,
-effectively disabling the latching.
+If there is a jumper present on the CTRL pin (5) of the 555 timer, the 555 output will always be 'LOW' effectively holding the Max485 in 
+Receive mode forever.
 
 ## UART RX Connection
 Moving along the RX line, it's connected to the Data Output pin of the Max485.
@@ -166,8 +170,8 @@ degradation.
 
 1. Start off by customizing the resistor values for your LEDs. I used [http://ledcalc.com/] to help inspire my choices.
 2. Use KiCad's PCB editor (pcbnew) to customize any footprint changes.
-3. Plot the copper to a PDF. Print the [back copper PDF](pi485-B.Cu.pdf) layer on a laser printer, using glossy photo paper.
-4. Print the silkscreen [front layers to a PDF](pi485-F.pdf). Print the PDF on a laser printer, using glossy photo paper.
+3. Print the [back copper](plots/pi485-B.Cu.svg) layer on a laser printer, using glossy photo paper.
+4. Print the [front](plots/pi485-brd.svg) layers on a laser printer, using glossy photo paper.
 5. Cut your board (70mm x 100mm)
 6. Transfer the copper printout using a hot iron and some water.... (youtube reference coming). Touchup with a resist pen if necessary.
 7. Etch the board.

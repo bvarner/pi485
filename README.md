@@ -1,11 +1,9 @@
 # Pi485 - UART TTL (Raspberry Pi / Arduino) to RS485
 ## What is it?
-
 Pi485 lets you connect the RX / TX pins on your Raspberry Pi (/dev/ttyAMA0) or Arduino device to an RS-484 network, 
 and transmit / receive as if the network were a normal serial device. 
 
 ## What can it do?
-
 * Create a low-cost RS-485 network of devices using serial I/O.
 * Communicate with other RS-485 networks.
 
@@ -13,7 +11,6 @@ Recent models of HVAC equipment (so called, "communicating" units) typically use
 This makes deciphering the comms stream a software problem, and one that many people have already started working on!
 
 ## Features
-
 All of the project variations in this repository feature the following:
 * Termination Jumper. None of the commercial offerings or existing modules I've seen allow you to disable the termination resistor. On a 
 multi-module RS-485 network, it's necessary that middle-nodes not have the termination resistor in the circuit, or the bus signals will 
@@ -25,7 +22,6 @@ bus, "power management", or enabling you to setup your UART tty before communica
 you can simply hook up positive voltage to the control pin, and the circuit will always be on.
 
 ## What's in this repo?
-
 This repository contains my kicad EDA source schematics, PCB layouts, and rendered PDF plots of both.
 Oh, and there's documentation, too.
 
