@@ -1,9 +1,9 @@
 (kicad_pcb (version 20160815) (host pcbnew "(2016-12-18 revision 3ffa37c)-master")
 
   (general
-    (links 0)
+    (links 54)
     (no_connects 0)
-    (area 7.051715 14.289999 93.341001 61.4325)
+    (area 7.051715 14.289999 80.630286 61.4325)
     (thickness 1.6)
     (drawings 15)
     (tracks 177)
@@ -98,7 +98,7 @@
       (mirror false)
       (drillshape 1)
       (scaleselection 1)
-      (outputdirectory ""))
+      (outputdirectory plots/))
   )
 
   (net 0 "")
@@ -220,7 +220,7 @@
     (fp_text reference Q3 (at 6 1.985 180) (layer F.SilkS)
       (effects (font (size 1 1) (thickness 0.15)))
     )
-    (fp_text value 2N4401 (at -1.46 0 360) (layer F.Fab)
+    (fp_text value 2N4401 (at -1.46 0) (layer F.Fab)
       (effects (font (size 1 1) (thickness 0.15)))
     )
     (fp_arc (start 2.54 0) (end 0.84 1.7) (angle 20.5) (layer F.SilkS) (width 0.15))
