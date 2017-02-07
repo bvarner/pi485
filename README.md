@@ -26,15 +26,30 @@ you can simply hook up positive voltage to the control pin, and the circuit will
 This repository contains my kicad EDA source schematics, PCB layouts, and SVG plots of the schematics and PCB layers.
 
 ### Standalone
-There is a standalone board you can assemble from discrete components. If you're going to make an order from your supplier of choice, I 
-recommend this board. If you're going to be etching your own boards, this one is a good deal easier to work with as the traces, pads, and 
-spacing rules have been tuned for home-etching and hand soldering with imprecise tools.
+This complete solution can be assembled from discrete components. It uses a Max485 IC, and NE555 timer, and some discrete components to 
+implement a hardware level RS-485 interface that automatically controls the DE / RE pins based on TX activity, allows for jumper 
+configuration of termination, and adds blinken-lights for TX / RX, and Power.
+
+This layout was designed for an entry-level hobby maker with very larget traces, tweaked pad sizes, and generous spacing on a single-side 
+copper clad board.
 
 ### Bearer
-The bearer board is designed to hold an LC Technologies RS-485 board (or equivalent).
-These boards are based around a max485 in a surface-mount, slew-rate limited configuration, and include filtering capacitors, power LED, and
-some pull-up resistors. The bearer board adds the 555 latch circuit for DE/RE control from the TX line, RX / TX LEDS, power on/off, and 
-jumper termination features from the standalone board design (if you unsolder the 120Ohm resistor on the LC Tech module).
+The bearer board is designed to hold an [LC Tech MAX485 module](http://www.chinalctech.com/index.php?_m=mod_product&_a=view&p_id=811), which
+is an inexpensive module based around a max485 in a surface-mount, slew-rate limited configuration. 
+These modules include some support components like power filtering capacitors, a power LED, and some pull-up / pull-down resistors.
+
+The bearer board adds the 555 latch circuit for DE/RE control from the TX line, RX / TX LEDS, power on/off, and 
+jumper termination control from the standalone board design (if you unsolder the 120Ohm resistor on the LC Tech module).
+
+In my experience, if you want to make more than one of these devices, it's much cheaper to purchase the LC Tech modules and build Pi485 
+bearer boards to hold them. The down-side is that the bearer board isn't as friendly for beginner to solder, or as easy to etch at home with 
+basic tools and chemicals. Also, in order to get the jumper controlled termination, you have to unsolder one of the resistors from the LC 
+Tech modules.
+
+As an example of the price difference, just the Max485 IC alone current costs ~$2.65 USD in quantities under 20. When you figure in the cost
+of the other components that come on the LC Tech module (screw terminals, power LED, resistors, etc.) you'll quickly find it's much cheaper
+to use the LC Tech modules and build the bearer board.
+
 
 ## Project Background
 I've had a couple Raspberry Pi's laying about my home for a few years now. After running across the 
