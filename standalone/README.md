@@ -105,16 +105,20 @@ and are not an endorsement.
 
 Almost every module I've looked at is based on the [MAX485](http://datasheets.maximintegrated.com/en/ds/MAX1487-MAX491.pdf).
 
+### Overly simplistic opinionated view of RS-485.
 It seems that off-the-shelf modules tend to approach the MAX485 series of half-duplex (two wire RS485) chips as a pretty simple TTL->485 
-converter, suitable for locating at the _endpoints_ of a very simplistic master-slave network. In order to drop in multiple modules 
-(multiple slaves) or enable multi-master communications and form a true network, there's some hardware work that needs to be done.
+converter, suitable for locating at the _endpoints_ of a very simplistic single master-slave network. In order to drop in multiple modules 
+(multiple slaves) or enable multi-master communications and form a true network, there's some hardware work that needs to be done (removing
+termination resistors) and software control of the RE / DE with a GPIO (which open you up to a whole slew of software timing issues).
 
-## Things I take issue with...
 ### Soldered on Termination
 For example, the LinkSprite module and the LC Tech modules both carry 120Ohm termination resistors, and no jumper header to remove it from
 the circuit. The only practical option to add these modules as a network node other than an 'end point' is to unsolder that resistor.
 
-### DE / RE Pin Hysteresis
+### Lack of TX / RX Visibility
+I like [blinkenlights](https://en.wikipedia.org/wiki/Blinkenlights). These products should have blinkenlights.
+
+### DE / RE Pin Hysteresis 
 Additionally, the LC Tech module has the DE and RE pins of the Max485 directly accessible over headers but provides no extra circuitry to 
 drive the input to those pins based off the TTL TX. These two pins of a Max485 are responsible for setting the duplex state of the chip 
 (Driver Enable / Receiver Enable) for either sending or receiving data. The RE pin is active on Logic Low (GND) and the DE pin is active on 
