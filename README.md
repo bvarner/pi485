@@ -12,6 +12,7 @@ This makes deciphering the comms stream a software problem, and one that many pe
 
 ## Features
 All of the project variations in this repository feature the following:
+
 * Termination Jumper. None of the commercial offerings or existing modules I've seen allow you to disable the termination resistor. On a 
 multi-module RS-485 network, it's necessary that middle-nodes not have the termination resistor in the circuit, or the bus signals will 
 deteriorate significantly.

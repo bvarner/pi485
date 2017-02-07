@@ -41,4 +41,4 @@ For in-depth details on the function of [the circuit](plots/pi485bearer.png) ref
 12. Place & solder components.
 13. Assemble!
 14. Remove the 120Ohm resistor (R7) from the LC Tech 485 Module.
-    ![R7 Has to Go](lctech485.jpg)
+    ![R7 Has to Go](lctech485-r7.jpg)
