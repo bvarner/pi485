@@ -13,6 +13,7 @@ to be removed from the 485 module.
 ![Copper Layer](plots/pi485bearer-B.Cu.png) ![Front Layers](plots/pi485bearer-brd.png)
 
 is designed to hold these RS485 modules
+
 ![LCTech485](lctech485.jpg)
 
 ## Schematic
