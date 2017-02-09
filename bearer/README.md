@@ -8,15 +8,15 @@ Unlike the standalone board this layout prioritizes compactness over ease of use
 The traces are thinner, clearances are tighter, and in order to get jumper-controlled termination, the 120Ohm surface mount resistor has 
 to be removed from the 485 module.
 
-This layout
+## PCB Layout
 
 ![Copper Layer](plots/pi485bearer-B.Cu.png) ![Front Layers](plots/pi485bearer-brd.png)
 
-will hold one of these
-
+is designed to hold these RS485 modules
 ![LCTech485](lctech485.jpg)
 
-and addresses the shortcomings I uncovered while working on the standalone Pi485.
+## Schematic
+![Schematic](plots/pi485bearer.png)
 
 # Design Goals
 * Add the functions and features of the standalone module in a more compact layout that can accomodate inexpensive LC Tech 485 modules.
