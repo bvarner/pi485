@@ -53,23 +53,12 @@ Text HLabel 1200 1350 0    60   Input ~ 0
 DE
 Text HLabel 1200 1450 0    60   Input ~ 0
 DI
-Text HLabel 2700 1400 2    60   Input ~ 0
+Text HLabel 2700 1400 2    60   Output ~ 0
 GND
 Text HLabel 2700 1300 2    60   BiDi ~ 0
 A
 Text HLabel 2700 1200 2    60   BiDi ~ 0
 B
-$Comp
-L GND #PWR09
-U 1 1 588218CD
-P 2600 1400
-F 0 "#PWR09" H 2600 1150 50  0001 C CNN
-F 1 "GND" H 2605 1227 50  0000 C CNN
-F 2 "" H 2600 1400 50  0000 C CNN
-F 3 "" H 2600 1400 50  0000 C CNN
-	1    2600 1400
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	2700 1300 2600 1300
 Wire Wire Line
@@ -90,7 +79,7 @@ U 1 1 5881780E
 P 1500 1300
 F 0 "P5" H 1578 1341 50  0000 L CNN
 F 1 "CONN_01X04" H 1578 1250 50  0000 L CNN
-F 2 "Socket_Strips:Socket_Strip_Straight_1x04" H 1500 1300 50  0000 C CNN
+F 2 "Socket_Strips:Socket_Strip_Straight_1x04" H 1500 1300 50  0001 C CNN
 F 3 "" H 1500 1300 50  0000 C CNN
 	1    1500 1300
 	1    0    0    -1  
@@ -101,7 +90,7 @@ U 1 1 5881786B
 P 2400 1250
 F 0 "P6" H 2319 875 50  0000 C CNN
 F 1 "CONN_01X04" H 2319 966 50  0000 C CNN
-F 2 "Socket_Strips:Socket_Strip_Straight_1x04" H 2400 1250 50  0000 C CNN
+F 2 "Socket_Strips:Socket_Strip_Straight_1x04" H 2400 1250 50  0001 C CNN
 F 3 "" H 2400 1250 50  0000 C CNN
 	1    2400 1250
 	-1   0    0    1   
