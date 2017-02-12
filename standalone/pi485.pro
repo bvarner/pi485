@@ -1,4 +1,4 @@
-update=Thursday, February 09, 2017 'AMt' 09:32:36 AM
+update=Sunday, February 12, 2017 'PMt' 05:33:44 PM
 version=1
 last_client=kicad
 [pcbnew]
@@ -113,15 +113,15 @@ LibName83=Worldsemi
 LibName84=Xicor
 LibName85=zetex
 LibName86=Zilog
+[general]
+version=1
 [schematic_editor]
 version=1
 PageLayoutDescrFile=
-PlotDirectoryName=
+PlotDirectoryName=plots/
 SubpartIdSeparator=0
 SubpartFirstId=65
 NetFmtName=
 SpiceAjustPassiveValues=0
 LabSize=60
 ERC_TestSimilarLabels=1
-[general]
-version=1
