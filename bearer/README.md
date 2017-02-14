@@ -5,8 +5,8 @@ Based upon what I learned while creating the Standalone pi485, this board is mea
 power controll, and latched DE / RE pin driving to this very inexpensive and commonly available module.
 
 Unlike the standalone board this layout prioritizes compactness over ease of use for beginners.
-The traces are thinner, clearances are tighter, and in order to get jumper-controlled termination, the 120Ohm surface mount resistor has 
-to be removed from the 485 module.
+The trace clearances are tighter and you'll need to remove five surface mount resistors from the RS485 module. In practice, I've found 
+these boards are reasonably easy to produce with a laser printer hot iron transfer.
 
 ## PCB Layout
 
@@ -20,7 +20,9 @@ is designed to hold these RS485 modules
 ![Schematic](plots/pi485bearer.png)
 
 # Design Goals
-* Add the functions and features of the standalone module in a more compact layout that can accomodate inexpensive LC Tech 485 modules.
+* Add the functions and features of the standalone module in a slightly more compact layout that can accomodate inexpensive 485 modules.
+* Leverage the RS 485 module due to the module cost being less than the the cost of a discrete terminal block header, max485 IC, power LED, 
+LED resistor, and filtering capacitors. These boards do shave a couple USD off the cost of UART based RS-485.
 * Latch the DE / RE pins on the Max485 based upon the UART TX activity, but allow that to be disabled (force read-only mode)
 * Include jumper termination for the A/B lines of the RS485 bus.
 
@@ -41,5 +43,5 @@ For in-depth details on the function of [the circuit](plots/pi485bearer.png) ref
 11. Drill the component holes.
 12. Place & solder components.
 13. Assemble!
-14. Remove the 120Ohm resistor (R7), and the 4 10kOhm resistors (R1 - R4) from the LC Tech 485 Module.
+14. Remove the 120Ohm resistor (R7), and the 4 10kOhm pull-up resistors (R1 - R4) from the LC Tech 485 Module.
     ![R7 Has to Go](lctech485-r7.jpg)

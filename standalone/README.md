@@ -55,20 +55,24 @@ power to the RaspberryPi and connecting the UART pins and 485PWR signal line.
 
 ## RX / TX LED Signaling
 The RX & TX lines are tapped with 270ohm resistors to pull the 5vdc down to an appropriate level for tripping the NPN transistors in the 
-lower left side of the schematic. When the voltage on the RX / TX pins goes LOW (signaling data, not idle), the NPN halts the flow of
- electricity from the Collector to the Emitter (opens the switch), leaving the only path to ground being through the LEDs. Make sure you 
- size your R3 and R7 resistors appropriately for your LEDs.
+lower left side of the schematic. When the voltage on the RX / TX pins goes LOW (signaling data, not idle), the NPN halts the flow of 
+electricity from the Collector to the Emitter (opens the switch), leaving the only path to ground being through the LEDs. Make sure you 
+size your R3 and R7 resistors appropriately for your LEDs. The NPN transistors in this circuit are specced as 2N3904's, but 2N4401s will 
+work just as well.
 
-## Power Filtering, Switching, & Power LED 
-Moving to the top-right portion of the schematic, there's another NPN controlling power flow from VCC to a few decoupling filter capacitors,
-a power LED, and the positive supply voltage of the rest of the circuit. If you connect the 485PWR pin of P1 to a +3.3v header, you can make 
-the circuit 'always on'. If you'd rather have 'control' over the circuit (for example, so you can setup the UART configuration and _then_ 
-turn on the hardware) you can drive the 485PWR pin high with a standard GPIO pin.
+## Power Filtering & Power LED 
+Above the RX / TX LED section, there's a small block with two transistors (an NPN and a PNP) working together to create a 'high-side' power
+switch for the entire circuit. The PNP transistor switches the +5v supply for the rest of the circuit, based on the on/off state of the 
+NPN. Using the NPN to control the PNP allows us to drive the 5v line with a 3.3v GPIO, and to do it in a '1' is on, '0' is off, semantic.
+
+If you'd rather the circuit always be 'on', omit these components, or connect pin 5 on the P1 header to the 5V or a 3.3V line.
+
+Looking to the lower-right portion of the schematic, you'll find several decoupling filter capacitors and a power LED.
 
 ## UART TX Connections
 The TX line is connected to the trigger pin of a 555 timer, and then to the Data Input pin of the Max485.
 
-The 555 timer circuit is a slightly modified missing pulse detector.
+The 555 timer circuit is a slightly modified missing pulse detector, which you'll find right smack in the middle of the schematic.
 
 When the TX power drops below the threshold defined by the 3.9k resistor (R2), the output of the 555 goes HIGH. After a very short delay,
 (it switches ~38400hz) the output will go back low, unless the the TX line input is still low. In a typical missing pulse detector, the 555
@@ -96,18 +100,18 @@ The circuit provides basic decoupling / power filtering, some passive LED monito
 logic for the Max485, along with a basic resistance network to setup the A/B differentials on the RS-485 bus.
 
 # Analysis of other products / options
-First off, I am not a professional. In reality I'm a software engineer who got into this out of curiosity. I have always detested 
+I am not a professional EE. In reality I'm a software engineer who got into this out of curiosity. I have always detested 
 black-boxes (things which I cannot take apart or understand completely) and it's my nature to dismantle, analyze, evaluate, and eventually 
-take that knowlege and apply it to things I synthesize. But, I consider electronics a 'hobby'. My comments here are my own personal opinions
-and are not an endorsement.
+take that knowlege and apply it to things I synthesize. I consider electronics a 'hobby'. My comments here are my own personal opinions
+and are not an endorsement or meant to dissuade or persuade your purchasing decisions.
 
 # Build Instructions
 
 1. Start off by customizing the resistor values for your LEDs. I used [http://ledcalc.com/] to help inspire my choices.
 2. Use KiCad's PCB editor (pcbnew) to customize any footprint changes.
-3. Print the [back copper](plots/pi485-B.Cu.svg) layer on a laser printer, using glossy photo paper.
-4. Print the [front](plots/pi485-brd.svg) layers on a laser printer, using glossy photo paper.
-5. Cut your board (70mm x 100mm)
+3. Print the [back copper](plots/pi485-B.Cu.svg) layer on a laser printer, using glossy paper.
+4. Print the [front](plots/pi485-brd.svg) layers on a laser printer, using glossy paper.
+5. Cut your board to size (63mm x 46mm)
 6. Transfer the copper printout using a hot iron and some water.... (youtube reference coming). Touchup with a resist pen if necessary.
 7. Etch the board.
 8. Clean the board.
@@ -115,4 +119,4 @@ and are not an endorsement.
 10. Reflow the board (bake it in an oven).
 11. Drill the component holes.
 12. Place & solder components.
-13. Assemble!
+13. Clean up, and enjoy!
