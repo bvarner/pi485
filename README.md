@@ -16,20 +16,28 @@ All of the project variations in this repository feature the following:
 * Termination Jumper. None of the commercial offerings or existing modules I've seen allow you to disable the termination resistor. On a 
 multi-module RS-485 network, it's necessary that middle-nodes not have the termination resistor in the circuit, or the bus signals will 
 deteriorate significantly.
-* Latched DE / RE pins on the MAX485 driven by TX activity, with a 'latch disable' jumper. If you want to disable the DE latching and 
-force your device to be 'read only', you can add a jumper to the "Latch Disable" header, which will pull the 555 output to 'low'.
-* Software controlable off / on. Using a GPIO pin (3.3v) you can turn the circuit 'on' or 'off', allowing for a software reset of the 485
-bus, "power management", or enabling you to setup your UART tty before communications begin. If you prefer the 'always on' approach, 
-you can simply hook up positive voltage to the control pin, and the circuit will always be on.
+* Hardware Latched DE / RE pins on the MAX485 driven by TX activity, with a 'RO' (Read Only) jumper header.
+Adding a jumper will force your device to be 'read only' by disabling the hardware latch of the DE / RE Pins.
+* Software controlable off / on. Using a GPIO pin (3.3v) you can turn the circuit 'on' or 'off', allowing for a software reset of the 485 
+module, pseudo "power management", or simply give you the time to setup your UART tty before initiating a communication connection.
+If you prefer the 'always on' approach, you can simply hook up positive voltage to the control pin, and the circuit will always be on.
 
 ## What's in this repository?
 This repository contains [KiCad EDA](http://kicad-pcb.org/) source schematics, PCB layouts, and rendered SVG plots.
 
 The SVG Plots can be used to print your own PCB, or you could try using them as a template for making your own.
 
-I recommend using a hot-iron transfer of a laser-printed printout on glossy paper as a good starting point. The PCB layouts in this repo 
-have been tweaked to increase trace width, spacing, and pad sizes to help with this method, and to make it easier to touch up traces with
-a resist pen if necessary. Personally, I don't have fancy CNC equipment at home, so I etch my boards chemically and drill them on a press.
+## What? Make my own PCB?
+I've had good success with the layouts in this repo using the laser-printer hot-iron transfer method. I've gotten excellent results with 
+Hammermill Color Laser Gloss (sku 163110) paper. It's a 32lb very smooth gloss paper like you'll find on lightweight magazine covers.
+The 163110 takes and transfers toner very well, and is light enough for use in nearly every laser printer I've run across.
+When soaked in water for a few minutes after ironing the paper easily peels off without removing the toner. I normally lightly sand the 
+left-over transfer with 1500 grit paper to remove the last of the paper fibers and any gloss 'bleed' before chemical etching the board.
+
+Now that I have my method down I could probably tweak the layouts to shrink the trace size (from 1.0 to 0.8 or 0.7) which would help with
+some of the 'bleed' I sometimes get when doing the iron transfer.
+
+I also have invested in some inexpensive carbide drill bit sets from 0.3 - 1.2mm for drilling the PCBs in a drill press.
 
 ### Standalone
 ![Copper Layer](standalone/plots/pi485-B.Cu.png) ![Front Layers](standalone/plots/pi485-brd.png)
