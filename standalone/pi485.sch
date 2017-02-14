@@ -681,7 +681,6 @@ Wire Wire Line
 	4750 3500 4850 3500
 Wire Wire Line
 	4300 4000 4300 6750
-Connection ~ 4300 6750
 Wire Wire Line
 	5150 3700 5150 4550
 Connection ~ 5150 4550
