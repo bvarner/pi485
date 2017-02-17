@@ -39,6 +39,26 @@ some of the 'bleed' I sometimes get when doing the iron transfer.
 
 I also have invested in some inexpensive carbide drill bit sets from 0.3 - 1.2mm for drilling the PCBs in a drill press.
 
+If you're interested in a prebuilt board, contact me (bvarner) via github. I would be willing to coordinate a small run, and I may have a 
+few boards on hand (or on ebay) you could convince me to part with.
+
+## Usage
+To setup a RaspberryPi so that you can use the UART for what you want rather than it exposing a serial console.
+
+1. Use `raspi-config` to disable the serial console.
+2. Enable the UART at boot by editing `/boot/config.txt` and setting `enable_uart=1`.
+3. A pi485 requires a logic 'high' signal on the PWR (P1 connector, pin 5) signal line. You can wire up a +3.3v line to force power to always
+be 'on', or you can control it with a GPIO pin.
+
+If using a GPIO pin, a convenient way to manage this is to install `wiringpi`, and edit the `/etc/rc.local` script to add the following lines:
+```
+/usr/bin/gpio mode 1 out
+/usr/bin/gpio write 1 1
+```
+
+You can also take the opportunity to set your tty settings in `/etc/rc.local` if you so desire.
+
+
 ### Standalone
 ![Copper Layer](standalone/plots/pi485-B.Cu.png) ![Front Layers](standalone/plots/pi485-brd.png)
 
