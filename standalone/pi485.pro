@@ -1,4 +1,4 @@
-update=Wednesday, January 11, 2017 'PMt' 04:28:00 PM
+update=Sunday, February 12, 2017 'PMt' 05:33:44 PM
 version=1
 last_client=kicad
 [pcbnew]
@@ -23,8 +23,6 @@ ModuleOutlineThickness=0.150000000000
 [cvpcb]
 version=1
 NetIExt=net
-[general]
-version=1
 [eeschema]
 version=1
 LibDir=
@@ -115,3 +113,15 @@ LibName83=Worldsemi
 LibName84=Xicor
 LibName85=zetex
 LibName86=Zilog
+[general]
+version=1
+[schematic_editor]
+version=1
+PageLayoutDescrFile=
+PlotDirectoryName=plots/
+SubpartIdSeparator=0
+SubpartFirstId=65
+NetFmtName=
+SpiceAjustPassiveValues=0
+LabSize=60
+ERC_TestSimilarLabels=1
