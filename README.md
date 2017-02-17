@@ -39,23 +39,53 @@ some of the 'bleed' I sometimes get when doing the iron transfer.
 
 I also have invested in some inexpensive carbide drill bit sets from 0.3 - 1.2mm for drilling the PCBs in a drill press.
 
+If you're interested in a prebuilt board, contact me (bvarner) via github. I would be willing to coordinate a small run, and I may have a 
+few boards on hand (or on ebay) you could convince me to part with.
+
+## Usage
+To setup a RaspberryPi so that you can use the UART for what you want rather than it exposing a serial console.
+
+1. Use `raspi-config` to disable the serial console.
+2. Enable the UART at boot by editing `/boot/config.txt` and setting `enable_uart=1`.
+3. A pi485 requires a logic 'high' signal on the PWR (P1 connector, pin 5) signal line. You can wire up a +3.3v line to force power to always
+be 'on', or you can control it with a GPIO pin.
+
+If using a GPIO pin, a convenient way to manage this is to install `wiringpi`, and edit the `/etc/rc.local` script to add the following lines:
+```
+/usr/bin/gpio mode 1 out
+/usr/bin/gpio write 1 1
+```
+
+You can also take the opportunity to set your tty settings in `/etc/rc.local` if you so desire.
+
+## Hardware Configurations
+
 ### Standalone
-![Copper Layer](standalone/plots/pi485-B.Cu.png) ![Front Layers](standalone/plots/pi485-brd.png)
-
-![Tinned PCB](standalone/build/back-cu-tinned.jpg) ![Assembled PCB](standalone/build/fully_assembled.jpg)
-
 This complete solution can be assembled from discrete components. It uses a Max485 IC, and NE555 timer, and some discrete components to 
 implement a hardware level RS-485 interface that automatically controls the DE / RE pins based on TX activity, allows for jumper 
 configuration of termination, and adds blinken-lights for TX / RX, and Power.
 
+This configuration is the easiest one to fabricate at home. Everything from pad size, to trace width and clearance restrictions have been
+tweaked to make this easier to work with for novices. Armed with a single-sided copper clad board, some ferric chloride, a fine-tipped 
+sharpie marker and a steady hand, you could build this layout without doing an iron transfer. However, the component cost is higher. The
+PDIP Max485 in small quantities is by itself more expensive than a single LC Technologies RS485 module used by the bearer configuration.
+
+![Copper Layer](standalone/plots/pi485-B.Cu.png) ![Front Layers](standalone/plots/pi485-brd.png)
+
+![Tinned PCB](standalone/build/back-cu-tinned.jpg) ![Assembled PCB](standalone/build/fully_assembled.jpg)
+
 ### Bearer
+The bearer board is designed to hold an [LC Tech MAX485 module](http://www.chinalctech.com/index.php?_m=mod_product&_a=view&p_id=811), which
+is an inexpensive module based around a max485 in a surface-mount, slew-rate limited configuration. 
+These modules include some support components like power filtering capacitors, a power LED, and some pull-up resistors.
+Building a bearer board is a bit more tricky, as it has lower clearance tolerances between traces, thinner traces, and requires that you 
+modify (unsolder) some resistors off the LC Tech module. However, when full BOM part costs are taken into consideration, if you're making
+more than one pi485, it'll be cheaper to use the bearer configuration.
+
 ![Copper Layer](bearer/plots/pi485bearer-B.Cu.png) ![Front Layers](bearer/plots/pi485bearer-brd.png)
 
 ![Tinned PCB](bearer/build/back-cu-tinned.jpg) ![Assembled PCB](bearer/build/stacked_assembly.jpg)
 
-The bearer board is designed to hold an [LC Tech MAX485 module](http://www.chinalctech.com/index.php?_m=mod_product&_a=view&p_id=811), which
-is an inexpensive module based around a max485 in a surface-mount, slew-rate limited configuration. 
-These modules include some support components like power filtering capacitors, a power LED, and some pull-up / pull-down resistors.
 
 The bearer board adds the 555 latch circuit for DE/RE control from the TX line, RX / TX LEDS, power on/off, and 
 jumper termination control from the standalone board design (if you unsolder the 120Ohm resistor on the LC Tech module).
