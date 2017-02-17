@@ -65,6 +65,11 @@ This complete solution can be assembled from discrete components. It uses a Max4
 implement a hardware level RS-485 interface that automatically controls the DE / RE pins based on TX activity, allows for jumper 
 configuration of termination, and adds blinken-lights for TX / RX, and Power.
 
+This configuration is the easiest one to fabricate at home. Everything from pad size, to trace width and clearance restrictions have been
+tweaked to make this easier to work with for novices. Armed with a single-sided copper clad board, some ferric chloride, a fine-tipped 
+sharpie marker and a steady hand, you could build this layout without doing an iron transfer. However, the component cost is higher. The
+PDIP Max485 in small quantities is by itself more expensive than a single LC Technologies RS485 module used by the bearer configuration.
+
 ![Copper Layer](standalone/plots/pi485-B.Cu.png) ![Front Layers](standalone/plots/pi485-brd.png)
 
 ![Tinned PCB](standalone/build/back-cu-tinned.jpg) ![Assembled PCB](standalone/build/fully_assembled.jpg)
@@ -72,7 +77,10 @@ configuration of termination, and adds blinken-lights for TX / RX, and Power.
 ### Bearer
 The bearer board is designed to hold an [LC Tech MAX485 module](http://www.chinalctech.com/index.php?_m=mod_product&_a=view&p_id=811), which
 is an inexpensive module based around a max485 in a surface-mount, slew-rate limited configuration. 
-These modules include some support components like power filtering capacitors, a power LED, and some pull-up / pull-down resistors.
+These modules include some support components like power filtering capacitors, a power LED, and some pull-up resistors.
+Building a bearer board is a bit more tricky, as it has lower clearance tolerances between traces, thinner traces, and requires that you 
+modify (unsolder) some resistors off the LC Tech module. However, when full BOM part costs are taken into consideration, if you're making
+more than one pi485, it'll be cheaper to use the bearer configuration.
 
 ![Copper Layer](bearer/plots/pi485bearer-B.Cu.png) ![Front Layers](bearer/plots/pi485bearer-brd.png)
 
