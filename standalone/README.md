@@ -8,6 +8,9 @@ to create a PCB with a resist marker by hand.
 ## PCB Layout
 ![Copper Layer](plots/pi485-B.Cu.png) ![Front Layers](plots/pi485-brd.png)
 
+## Assembled
+![Back Cu Tinned](build/back-cu-tinned.jpg) ![Populated](build/fully_assembled.jpg)
+
 ## Schematic
 ![Schematic](plots/pi485.png)
 

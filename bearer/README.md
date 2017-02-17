@@ -11,10 +11,15 @@ these boards are reasonably easy to produce with a laser printer hot iron transf
 ## PCB Layout
 
 ![Copper Layer](plots/pi485bearer-B.Cu.png) ![Front Layers](plots/pi485bearer-brd.png)
+![Tinned PCB](build/back-cu-tinned.jpg) ![Front Transferred](build/front-toner-transferred.jpg)
+
+![Assembled](build/fully_assembled.jpg)
 
 is designed to hold these RS485 modules
 
-![LCTech485](lctech485.jpg)
+![LCTech485](lctech485.jpg) ![Full Stack](build/stacked_assembly.jpg)
+
+
 
 ## Schematic
 ![Schematic](plots/pi485bearer.png)
