@@ -42,12 +42,16 @@ I also have invested in some inexpensive carbide drill bit sets from 0.3 - 1.2mm
 ### Standalone
 ![Copper Layer](standalone/plots/pi485-B.Cu.png) ![Front Layers](standalone/plots/pi485-brd.png)
 
+![Tinned PCB](standalone/build/back-cu-tinned.jpg) ![Assembled PCB](standalone/build/fully_assembled.jpg)
+
 This complete solution can be assembled from discrete components. It uses a Max485 IC, and NE555 timer, and some discrete components to 
 implement a hardware level RS-485 interface that automatically controls the DE / RE pins based on TX activity, allows for jumper 
 configuration of termination, and adds blinken-lights for TX / RX, and Power.
 
 ### Bearer
 ![Copper Layer](bearer/plots/pi485bearer-B.Cu.png) ![Front Layers](bearer/plots/pi485bearer-brd.png)
+
+![Tinned PCB](bearer/build/back-cu-tinned.jpg) ![Assembled PCB](bearer/build/stacked_assembly.jpg)
 
 The bearer board is designed to hold an [LC Tech MAX485 module](http://www.chinalctech.com/index.php?_m=mod_product&_a=view&p_id=811), which
 is an inexpensive module based around a max485 in a surface-mount, slew-rate limited configuration. 
