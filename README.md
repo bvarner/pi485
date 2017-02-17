@@ -3,6 +3,9 @@
 Pi485 lets you connect the RX / TX pins on your Raspberry Pi (/dev/ttyAMA0) or Arduino device to an RS-484 network, 
 and transmit / receive as if the network were a normal serial device.
 
+** Fair warning: The version you're looking at here (1.1.0) has some issues, and should probably only be used with the "Read Only" jumper
+set. See the open issues, for more information. **
+
 ## What can it do?
 * Create a low-cost RS-485 network of devices using serial I/O.
 * Communicate with other RS-485 networks.
