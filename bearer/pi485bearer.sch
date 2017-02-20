@@ -35,8 +35,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 2
 Title "Pi485 Bearer"
-Date "2017-02-12"
-Rev "1.1.0"
+Date "2017-02-20"
+Rev "1.1.1"
 Comp "Bryan Varner"
 Comment1 ""
 Comment2 "Size resistor values R3 and R4 appropriately for your LED choices."
@@ -129,7 +129,7 @@ U 1 1 5881B0E4
 P 5800 5550
 F 0 "C1" V 5900 5700 50  0000 C CNN
 F 1 "10nF" V 5900 5400 50  0000 C CNN
-F 2 "Capacitors_THT:C_Rect_L7_W2.5_P5" V 6000 5250 50  0001 C CNN
+F 2 "Capacitors_THT:C_Rect_L4_W2.5_P2.5" V 6000 5250 50  0001 C CNN
 F 3 "" H 5800 5550 50  0000 C CNN
 	1    5800 5550
 	0    1    1    0   
@@ -218,7 +218,7 @@ U 1 1 5881B0F6
 P 2250 4500
 F 0 "R2" V 2330 4500 50  0000 C CNN
 F 1 "200" V 2250 4500 50  0000 C CNN
-F 2 "Resistors_THT:Resistor_Horizontal_RM10mm" V 2400 3800 50  0001 C CNN
+F 2 "Resistors_THT:Resistor_Horizontal_RM7mm" V 2400 3800 50  0001 C CNN
 F 3 "" H 2250 4500 50  0000 C CNN
 	1    2250 4500
 	0    1    1    0   
@@ -229,7 +229,7 @@ U 1 1 5881B0F7
 P 2250 4300
 F 0 "R1" V 2330 4300 50  0000 C CNN
 F 1 "200" V 2250 4300 50  0000 C CNN
-F 2 "Resistors_THT:Resistor_Horizontal_RM10mm" V 2400 3600 50  0001 C CNN
+F 2 "Resistors_THT:Resistor_Horizontal_RM7mm" V 2400 3600 50  0001 C CNN
 F 3 "" H 2250 4300 50  0000 C CNN
 	1    2250 4300
 	0    1    1    0   
@@ -251,7 +251,7 @@ U 1 1 5881B0F9
 P 3600 3850
 F 0 "R4" V 3680 3850 50  0000 C CNN
 F 1 "270" V 3600 3850 50  0000 C CNN
-F 2 "Resistors_THT:Resistor_Horizontal_RM10mm" V 3750 3150 50  0001 C CNN
+F 2 "Resistors_THT:Resistor_Horizontal_RM7mm" V 3750 3150 50  0001 C CNN
 F 3 "" H 3600 3850 50  0000 C CNN
 	1    3600 3850
 	-1   0    0    1   
@@ -268,23 +268,12 @@ F 3 "" H 5500 4500 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CONN_01X02 P3
-U 1 1 5881B0FD
-P 4450 5500
-F 0 "P3" H 4450 5650 50  0000 C CNN
-F 1 "RO" V 4550 5500 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02" H 5100 5750 50  0001 C CNN
-F 3 "" H 4450 5500 50  0000 C CNN
-	1    4450 5500
-	-1   0    0    1   
-$EndComp
-$Comp
 L R R5
 U 1 1 5881B0FE
 P 3400 3200
 F 0 "R5" V 3300 3200 50  0000 C CNN
 F 1 "270" V 3400 3200 50  0000 C CNN
-F 2 "Resistors_THT:Resistor_Horizontal_RM10mm" V 3550 2500 50  0001 C CNN
+F 2 "Resistors_THT:Resistor_Horizontal_RM7mm" V 3550 2500 50  0001 C CNN
 F 3 "" H 3400 3200 50  0000 C CNN
 	1    3400 3200
 	0    -1   -1   0   
@@ -339,7 +328,9 @@ Wire Wire Line
 	6050 5150 5650 5150
 Connection ~ 6050 4950
 Wire Wire Line
-	4650 5550 5650 5550
+	4400 5500 4550 5500
+Wire Wire Line
+	4550 5550 5650 5550
 Wire Wire Line
 	5150 5350 5150 6000
 Connection ~ 5150 5550
@@ -394,7 +385,7 @@ Wire Wire Line
 	5650 4500 6050 4500
 Connection ~ 6050 5150
 Wire Wire Line
-	4650 5450 4650 4950
+	4150 4950 4650 4950
 Wire Wire Line
 	2500 5400 3850 5400
 Wire Wire Line
@@ -416,7 +407,7 @@ Wire Wire Line
 Wire Wire Line
 	7150 2550 7200 2550
 Wire Wire Line
-	7200 5800 7200 2550
+	7200 2550 7200 5800
 Wire Wire Line
 	5400 2100 5900 2100
 Wire Wire Line
@@ -435,9 +426,9 @@ Wire Wire Line
 Wire Wire Line
 	5800 2250 5800 4750
 Wire Wire Line
-	5800 4750 5650 4750
+	5650 4750 6300 4750
 Wire Wire Line
-	3850 5800 7200 5800
+	7200 5800 3850 5800
 Wire Wire Line
 	7200 1800 7200 2100
 Wire Wire Line
@@ -488,7 +479,7 @@ U 1 1 58A10B33
 P 4700 3000
 F 0 "R8" V 4600 3000 50  0000 C CNN
 F 1 "270" V 4700 3000 50  0000 C CNN
-F 2 "Resistors_THT:Resistor_Horizontal_RM10mm" V 4850 2300 50  0001 C CNN
+F 2 "Resistors_THT:Resistor_Horizontal_RM7mm" V 4850 2300 50  0001 C CNN
 F 3 "" H 4700 3000 50  0000 C CNN
 	1    4700 3000
 	0    -1   -1   0   
@@ -515,4 +506,55 @@ Wire Wire Line
 	4350 5150 4350 3550
 Connection ~ 4350 3550
 Connection ~ 4500 2550
+$Comp
+L R R9
+U 1 1 58A868D1
+P 6300 5000
+F 0 "R9" V 6380 5000 50  0000 C CNN
+F 1 "4.7k" V 6300 5000 50  0000 C CNN
+F 2 "Resistors_THT:Resistor_Horizontal_RM15mm" H 5400 5000 50  0001 C CNN
+F 3 "" H 6300 5000 50  0000 C CNN
+	1    6300 5000
+	1    0    0    -1  
+$EndComp
+Connection ~ 5800 4750
+Wire Wire Line
+	6300 5150 6300 5800
+Connection ~ 6300 5800
+$Comp
+L C C2
+U 1 1 58A86CE6
+P 4350 5650
+F 0 "C2" V 4450 5800 50  0000 C CNN
+F 1 "10nF" V 4450 5500 50  0000 C CNN
+F 2 "Capacitors_THT:C_Rect_L4_W2.5_P2.5" V 4550 5350 50  0001 C CNN
+F 3 "" H 4350 5650 50  0000 C CNN
+	1    4350 5650
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4150 4950 4150 5650
+Wire Wire Line
+	6300 4750 6300 4850
+Wire Wire Line
+	4150 5650 4200 5650
+Wire Wire Line
+	4500 5650 4550 5650
+Wire Wire Line
+	4550 5650 4550 5500
+Connection ~ 4550 5550
+$Comp
+L CONN_01X02 P3
+U 1 1 5881B0FD
+P 4350 5300
+F 0 "P3" H 4350 5450 50  0000 C CNN
+F 1 "RO" V 4450 5300 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02" H 5000 5550 50  0001 C CNN
+F 3 "" H 4350 5300 50  0000 C CNN
+	1    4350 5300
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4300 5500 4150 5500
+Connection ~ 4150 5500
 $EndSCHEMATC

@@ -92,8 +92,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Pi485"
-Date "2017-02-12"
-Rev "1.1.0"
+Date "2017-02-20"
+Rev "1.1.1"
 Comp "Bryan Varner"
 Comment1 ""
 Comment2 "Size resistor values R1, R3, and R7 appropriately for your LED choices."
@@ -445,12 +445,12 @@ $EndComp
 $Comp
 L CONN_01X02 P4
 U 1 1 587D51D9
-P 4800 6400
-F 0 "P4" H 4800 6550 50  0000 C CNN
-F 1 "RO" V 4900 6400 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x02" H 5450 6650 50  0001 C CNN
-F 3 "" H 4800 6400 50  0000 C CNN
-	1    4800 6400
+P 4650 6500
+F 0 "P4" H 4650 6650 50  0000 C CNN
+F 1 "RO" V 4750 6500 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x02" H 5300 6750 50  0001 C CNN
+F 3 "" H 4650 6500 50  0000 C CNN
+	1    4650 6500
 	-1   0    0    1   
 $EndComp
 $Comp
@@ -492,7 +492,7 @@ Wire Wire Line
 	6400 6050 6000 6050
 Connection ~ 6400 5850
 Wire Wire Line
-	5000 6450 6000 6450
+	5150 6450 6000 6450
 Connection ~ 5500 6450
 Wire Wire Line
 	5000 6050 4700 6050
@@ -552,7 +552,7 @@ Wire Wire Line
 Wire Wire Line
 	8000 2600 8000 2700
 Wire Wire Line
-	7100 6000 7100 3200
+	7100 3200 7100 5950
 Wire Wire Line
 	7500 2650 7500 2300
 Wire Wire Line
@@ -603,7 +603,7 @@ Wire Wire Line
 	6000 5400 6400 5400
 Connection ~ 6400 6050
 Wire Wire Line
-	5000 6350 5000 5850
+	4850 5850 5000 5850
 Wire Wire Line
 	7400 4550 7400 4750
 Wire Wire Line
@@ -618,7 +618,7 @@ Connection ~ 5500 4550
 Wire Wire Line
 	6400 6450 6300 6450
 Wire Wire Line
-	4300 6750 6800 6750
+	4300 6750 6650 6750
 Connection ~ 5500 6750
 Wire Wire Line
 	5500 6250 5500 6950
@@ -696,7 +696,7 @@ Connection ~ 4300 6400
 Wire Wire Line
 	2850 6400 4300 6400
 Wire Wire Line
-	6800 6750 6800 6000
+	6650 6750 6650 5950
 Wire Wire Line
 	5150 2800 5150 3300
 Connection ~ 6400 4550
@@ -704,7 +704,34 @@ Connection ~ 4700 4550
 Connection ~ 7100 5550
 Connection ~ 7400 5550
 Wire Wire Line
-	6800 6000 7100 6000
+	6650 5950 7100 5950
 Wire Wire Line
 	7800 5200 7800 5550
+$Comp
+L C C4
+U 1 1 58AB7251
+P 5000 6450
+F 0 "C4" V 5100 6600 50  0000 C CNN
+F 1 "10nF" V 5100 6300 50  0000 C CNN
+F 2 "Capacitors_THT:C_Rect_L4_W2.5_P2.5" V 5200 6150 50  0001 C CNN
+F 3 "" H 5000 6450 50  0000 C CNN
+	1    5000 6450
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4850 5850 4850 6450
+Wire Wire Line
+	4850 6550 4850 6750
+Connection ~ 4850 6750
+$Comp
+L R R12
+U 1 1 58AB7CF0
+P 6650 5800
+F 0 "R12" V 6730 5800 50  0000 C CNN
+F 1 "10k" V 6650 5800 50  0000 C CNN
+F 2 "Resistors_THT:Resistor_Horizontal_RM10mm" H 5750 5800 50  0001 C CNN
+F 3 "" H 6650 5800 50  0000 C CNN
+	1    6650 5800
+	-1   0    0    1   
+$EndComp
 $EndSCHEMATC

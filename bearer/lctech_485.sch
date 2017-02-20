@@ -35,8 +35,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 2 2
 Title "Pi485"
-Date "2017-01-18"
-Rev "1.1.0"
+Date "2017-02-20"
+Rev "1.1.1"
 Comp "Bryan Varner"
 Comment1 ""
 Comment2 "Size resistor values R1, R3, and R7 appropriately for your LED choices."
