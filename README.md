@@ -1,6 +1,6 @@
 # Pi485 - UART TTL (Raspberry Pi / Arduino) to RS485
 ## What is it?
-Pi485 lets you connect the RX / TX pins on your Raspberry Pi (/dev/ttyAMA0) or Arduino device to an RS-484 network, 
+Pi485 lets you connect the RX / TX pins on your Raspberry Pi (/dev/ttyAMA0) or Arduino device to an RS-485 network, 
 and transmit / receive as if the network were a normal serial device.
 
 ## What can it do?
