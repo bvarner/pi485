@@ -23,7 +23,7 @@ module, pseudo "power management", or simply give you the time to setup your UAR
 If you prefer the 'always on' approach, you can simply hook up positive voltage to the control pin, and the circuit will always be on.
 
 ## What's in this repository?
-This repository contains [KiCad EDA](http://kicad-pcb.org/) source schematics, PCB layouts, and rendered SVG plots.
+This repository contains [KiCad EDA](http://kicad.org/) source schematics, PCB layouts, and rendered SVG plots.
 
 The SVG Plots can be used to print your own PCB, or you could try using them as a template for making your own.
 
